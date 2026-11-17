@@ -8,6 +8,9 @@ trial, in an order seeded by their personal code, over as many sittings as they 
 on any device with the code. Answers are saved on every Next to a Supabase project and pulled with
 `scripts/pull_ratings.py`; `scripts/score.py` turns them into the numbers for the paper.
 
+Live: <https://danielliangajj.github.io/leb-human-eval/> (answers go to the Supabase project shared with the outcome
+taxonomy rating site, in the tables `leb_evaluators` and `leb_ratings`).
+
 The site never shows whether a finding passed the base's checks, which check held it, or any
 confidence: the clinicians rate blind. The key that says which record each finding is stays in the
 evidence base repository (`docs/evaluation/clinician_50/key.json`) and must not be copied here.
@@ -47,9 +50,9 @@ closed to it and the four functions in `schema.sql` are the only way in.
 
 ## Publish
 
-The same way as the taxonomy site: a GitHub repository with Pages serving the main branch. Note that
-`data/items.json` holds the text of 50 PubMed abstracts; the pages carry `noindex`, and the repository
-can be private if the account's plan serves Pages from private repositories.
+The same way as the taxonomy site: a public GitHub repository with Pages serving the main branch (the
+account's plan does not serve Pages from a private repository). `data/items.json` holds the text of 50
+PubMed abstracts; the pages carry `noindex`. A push to `main` redeploys within a minute or two.
 
 ## Pull and score the results
 
