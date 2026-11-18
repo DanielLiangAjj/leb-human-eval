@@ -22,7 +22,9 @@ files the Supabase table editor exports (Table Editor > leb_evaluators > Export 
 Writes into --out: evaluators.csv, ratings.jsonl (raw rows), progress.json and, per rater k,
 rater<k>_trials.tsv (one row per trial: the trial block's rating, the boxes marked wrong and the comment, the
 answer on missing results, the time on screen) and rater<k>_findings.tsv (one row per finding: rating, boxes
-marked wrong, worth, comment).
+marked wrong, worth, comment). When the second sheet is in use (data/statements.json exists and somebody has
+rated a statement) it also writes rater<k>_statements.tsv (one row per statement: supported, a result of this
+trial, comment).
 Raters are numbered by sign-up order unless --map assigns numbers (then only the mapped evaluators get sheets).
 scripts/score.py reads ratings.jsonl together with the key that never goes to the site.
 """
@@ -37,7 +39,9 @@ import urllib.request
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_ITEMS = os.path.normpath(os.path.join(HERE, '..', 'data', 'items.json'))
+DEFAULT_STATEMENTS = os.path.normpath(os.path.join(HERE, '..', 'data', 'statements.json'))
 SHEET = 'trials'
+SHEET2 = 'statements'
 PAGE = 1000
 
 
@@ -118,6 +122,14 @@ def load_items(path):
     return sorted(sheet['items'], key=lambda it: it['id'])
 
 
+def load_statements(path):
+    """The trials of the second sheet (each with its statements), or [] when the file is not there."""
+    if not os.path.exists(path):
+        return []
+    with open(path, encoding='utf-8') as f:
+        return sorted(json.load(f)['sheet']['items'], key=lambda it: it['id'])
+
+
 def read_backups(paths):
     """Evaluators and ratings from the JSON files the finish screen downloads."""
     evaluators, ratings = [], []
@@ -158,21 +170,32 @@ def write_tsv(path, header, rows):
         writer.writerows(rows)
 
 
-def summarise(evaluators, ratings, raters, items):
+def summarise(evaluators, ratings, raters, items, statements=()):
     known = {it['id'] for it in items}
     n_findings = {it['id']: len(it['findings']) for it in items}
-    done = {}
+    known2 = {it['id'] for it in statements}
+    n_statements = {it['id']: len(it['statements']) for it in statements}
+    done, done2 = {}, {}
     for r in ratings:
         if r.get('sheet') == SHEET and r.get('item_id') in known:
             done.setdefault(r['code'], set()).add(r['item_id'])
+        elif r.get('sheet') == SHEET2 and r.get('item_id') in known2:
+            done2.setdefault(r['code'], set()).add(r['item_id'])
     people = []
     for e in sorted(evaluators, key=lambda e: (raters.get(e['code'], 10 ** 6), e.get('created_at') or '')):
         mine = done.get(e['code'], set())
-        people.append({'rater': raters.get(e['code']), 'code': e['code'], 'name': e.get('name'),
-                       'created_at': e.get('created_at'), 'last_seen': e.get('last_seen'), 'completed_at': e.get('completed_at'),
-                       'trials': len(mine), 'findings': sum(n_findings[i] for i in mine), 'all_answered': len(mine) == len(known)})
-    return {'generated_at': datetime.datetime.now(datetime.timezone.utc).isoformat(timespec='seconds'),
-            'trials': len(known), 'findings': sum(n_findings.values()), 'evaluators': people}
+        person = {'rater': raters.get(e['code']), 'code': e['code'], 'name': e.get('name'),
+                  'created_at': e.get('created_at'), 'last_seen': e.get('last_seen'), 'completed_at': e.get('completed_at'),
+                  'trials': len(mine), 'findings': sum(n_findings[i] for i in mine), 'all_answered': len(mine) == len(known)}
+        if done2:   # the second sheet is in use
+            mine2 = done2.get(e['code'], set())
+            person.update({'statement_trials': len(mine2), 'statements': sum(n_statements[i] for i in mine2)})
+        people.append(person)
+    out = {'generated_at': datetime.datetime.now(datetime.timezone.utc).isoformat(timespec='seconds'),
+           'trials': len(known), 'findings': sum(n_findings.values()), 'evaluators': people}
+    if done2:
+        out.update({'statement_trials': len(known2), 'statements': sum(n_statements.values())})
+    return out
 
 
 def print_progress(summary):
@@ -185,7 +208,8 @@ def print_progress(summary):
         else:
             status = f"in progress (last seen {(p['last_seen'] or '-')[:16]})"
         rater = str(p['rater']) if p['rater'] else '-'
-        print(f"{rater:<6}{p['code']:<12}{(p['name'] or '')[:24]:<26}{p['trials']:>6}/{summary['trials']:<3}{p['findings']:>7}/{summary['findings']:<3}  {status}")
+        second = f"  statements {p['statements']}/{summary['statements']}" if 'statements' in summary else ''
+        print(f"{rater:<6}{p['code']:<12}{(p['name'] or '')[:24]:<26}{p['trials']:>6}/{summary['trials']:<3}{p['findings']:>7}/{summary['findings']:<3}  {status}{second}")
     if not summary['evaluators']:
         print('(no evaluators yet)')
 
@@ -201,11 +225,13 @@ def main():
     ap.add_argument('--map', action='append', default=[], metavar='CODE=K', help='rater number for a code (repeatable)')
     ap.add_argument('--progress', action='store_true', help='only print how far each evaluator is')
     ap.add_argument('--items', default=DEFAULT_ITEMS, help=argparse.SUPPRESS)
+    ap.add_argument('--statements-items', default=DEFAULT_STATEMENTS, help=argparse.SUPPRESS)
     a = ap.parse_args()
     if not a.progress and not a.out:
         ap.error('--out is required unless --progress is given')
 
     items = load_items(a.items)
+    statements = load_statements(a.statements_items)
     if a.backup:
         evaluators, ratings = read_backups(a.backup)
     elif a.evaluators_csv or a.ratings_csv:
@@ -230,7 +256,7 @@ def main():
         evaluators = rest.table('leb_evaluators', 'created_at.asc')
         ratings = rest.table('leb_ratings', 'id.asc')
     raters = assign_raters(evaluators, a.map)
-    summary = summarise(evaluators, ratings, raters, items)
+    summary = summarise(evaluators, ratings, raters, items, statements)
     if a.progress:
         print_progress(summary)
         return
@@ -246,10 +272,12 @@ def main():
         for r in ratings:
             f.write(json.dumps({**r, 'rater': raters.get(r['code'])}, ensure_ascii=False) + '\n')
 
-    by_code = {}
+    by_code, by_code2 = {}, {}
     for r in ratings:
         if r.get('sheet') == SHEET:
             by_code.setdefault(r['code'], {})[r['item_id']] = r
+        elif r.get('sheet') == SHEET2:
+            by_code2.setdefault(r['code'], {})[r['item_id']] = r
     written = []
     for code, k in sorted(raters.items(), key=lambda kv: kv[1]):
         mine = by_code.get(code, {})
@@ -273,6 +301,19 @@ def main():
         write_tsv(os.path.join(a.out, f'rater{k}_findings.tsv'),
                   ['finding', 'trial', 'population', 'intervention', 'comparator', 'outcome', 'direction', 'rating',
                    'boxes marked wrong', 'no result between these groups', 'worth', 'comment'], findings)
+        if statements and by_code2:
+            mine2, rows2 = by_code2.get(code, {}), []
+            for it in statements:
+                r = mine2.get(it['id'])
+                given = ((r or {}).get('answer') or {}).get('statements') or {}
+                secs = round(r['elapsed_ms'] / 1000) if r and r.get('elapsed_ms') is not None else ''
+                for s in it['statements']:
+                    x = given.get(s['id']) or {}
+                    rows2.append([s['id'], it['id'], clean(s['text']), s['where'], clean(s['sentence']),
+                                  x.get('support') or '', x.get('result') or '', clean(x.get('note')), secs])
+            write_tsv(os.path.join(a.out, f'rater{k}_statements.tsv'),
+                      ['statement', 'trial', 'text', 'read from', 'sentence', 'supported by the abstract',
+                       'a result of this trial', 'comment', 'seconds on the trial'], rows2)
         written.append(k)
 
     with open(os.path.join(a.out, 'progress.json'), 'w', encoding='utf-8') as f:

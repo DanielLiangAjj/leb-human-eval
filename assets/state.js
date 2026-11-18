@@ -5,17 +5,27 @@ import { seededShuffle } from './prng.js';
 /** Stored with every answer; bump it whenever an answer format changes. */
 export const APP_VERSION = '2.0'; // 2.0: every extracted field is a box; answers list the boxes marked wrong; a comment is required
 
-// 'statements' is reserved for a later second sheet (statements of two systems, rated blind);
-// the database already accepts it, and a sheet missing from data/items.json is simply skipped.
+// 'statements' is the second sheet (short statements another program read from the same abstracts, rated blind).
+// It lives in data/statements.json and is loaded only when config.js sets STATEMENTS_SHEET = true;
+// the database already accepts it.
 export const SHEET_ORDER = ['trials', 'statements'];
 const SECONDS_PER_TRIAL = 150;   // reading the abstract and checking the trial block
 const SECONDS_PER_FINDING = 35;  // every box of a finding
+const SECONDS_PER_STATEMENT = 12; // two short answers; the abstract has been read before
 
-export async function loadItems() {
+export async function loadItems({ statements = false } = {}) {
   const res = await fetch('data/items.json', { cache: 'no-cache' });
   if (!res.ok) throw new Error(`data/items.json: HTTP ${res.status}`);
   const data = await res.json();
   const byId = new Map(data.sheets.map((s) => [s.id, s]));
+  if (statements) {
+    // A sheet that is switched on must load: a rater must never be sent to the finish screen because a file was slow.
+    const extra = await fetch('data/statements.json', { cache: 'no-cache' });
+    if (!extra.ok) throw new Error(`data/statements.json: HTTP ${extra.status}`);
+    const more = await extra.json();
+    byId.set(more.sheet.id, more.sheet);
+    data.statements_version = more.version;
+  }
   data.sheets = SHEET_ORDER.map((id) => byId.get(id)).filter(Boolean);
   return data;
 }
@@ -62,10 +72,16 @@ export class Session {
 
 /** Number of findings (or statements) inside the items of a sheet. */
 export function partsIn(sheet) {
-  return sheet.items.reduce((n, it) => n + (it.findings ? it.findings.length : 0), 0);
+  return sheet.items.reduce((n, it) => n + ((it.findings || it.statements || []).length), 0);
+}
+
+/** What the parts of a sheet are called: "findings" or "statements". */
+export function partWord(sheet) {
+  return sheet.id === 'statements' ? 'statements' : 'findings';
 }
 
 export function minutesFor(sheet) {
+  if (sheet.id === 'statements') return (partsIn(sheet) * SECONDS_PER_STATEMENT) / 60;
   return (sheet.items.length * SECONDS_PER_TRIAL + partsIn(sheet) * SECONDS_PER_FINDING) / 60;
 }
 

@@ -2,6 +2,7 @@
 """Score the clinicians' ratings against the key (standard library only).
 
   python3 scripts/score.py --ratings results/2026-12-01/ratings.jsonl --key <path to key.json> [--out report.md]
+                           [--statements-key <path to statements_key.json>]
 
 ratings.jsonl is written by scripts/pull_ratings.py. The key (which record each shown finding is, with its status in
 the base) is written by scripts/clinician_site.py of the evidence base and is kept outside this site.
@@ -9,6 +10,8 @@ The report gives, per rater: the share of findings read correctly, for the findi
 the ones the checks hold; how often each box (each field the pipeline wrote down) was marked wrong, for the findings and
 for the trial block; the share worth having; the answer on missing results; the time taken.
 With two raters it adds their agreement (raw and Cohen's kappa).
+With --statements-key it adds the second sheet (the statements another system read from the same abstracts): the share
+the abstract supports, by kind and predicate, the share that are a result of the trial, and the raters' agreement.
 """
 import argparse
 import collections
@@ -20,6 +23,7 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_ITEMS = os.path.normpath(os.path.join(HERE, '..', 'data', 'items.json'))
+DEFAULT_STATEMENTS = os.path.normpath(os.path.join(HERE, '..', 'data', 'statements.json'))
 # The boxes of a finding (assets/trial.js, FINDING_PARTS) and of the trial block.
 PARTS = [('p', 'population'), ('i', 'intervention'), ('ki', 'standard name of the intervention'), ('c', 'comparator'),
          ('kc', 'standard name of the comparator'), ('o', 'outcome'), ('ko', 'standard name of the outcome'), ('d', 'direction'),
@@ -92,18 +96,99 @@ def kappa(pairs):
     return {'n': n, 'agree': po, 'kappa': (po - pe) / (1 - pe) if pe < 1 else float('nan')}
 
 
+def statements_part(all_rows, key_path, items_path):
+    """The report on the second sheet, as lines. A statement's answer is {support, result, note}; result is null when
+    support is "no" (the question is not asked then)."""
+    skey = json.load(open(key_path, encoding='utf-8'))
+    sheet = json.load(open(items_path, encoding='utf-8'))['sheet']
+    shown = {s['id']: {**s, 'trial': it['id']} for it in sheet['items'] for s in it['statements']}
+    meta = {sid: x for t in skey['trials'].values() for sid, x in t['statements'].items()}
+    missing = sorted(set(shown) - set(meta))
+    if missing:
+        sys.exit(f'score: the statements key does not know {missing[:5]}; is it the key of this data/statements.json?')
+    rows = [r for r in all_rows if r.get('sheet') == 'statements' and r.get('rater')]
+    raters = sorted({r['rater'] for r in rows})
+    trials = skey['trials']
+    in_source = [t for t in trials.values() if t.get('in_source')]
+    kinds = collections.Counter(meta[s]['kind'] for s in shown)
+    out = ['# The statements of the other system', '',
+           f'Source: {skey.get("source", "")}. Of the {len(trials)} trials of the sample, '
+           + (f'{len(in_source)} are in the source, ' if any(t.get('in_source') is not None for t in trials.values()) else '')
+           + f'{sum(t["predications_in_source"] > 0 for t in trials.values())} have a statement of any kind and {len(sheet["items"])} have one of the kinds shown '
+           f'({", ".join(skey.get("kinds_kept", []))}). {len(shown)} statements were shown: '
+           + ', '.join(f'{n} {k}' for k, n in sorted(kinds.items())) + '.', '']
+    if not raters:
+        return out + ['No statement has been rated by a numbered rater yet.', '']
+    labels = {}
+    for k in raters:
+        rated = {}
+        for r in rows:
+            if r['rater'] != k:
+                continue
+            for sid, x in ((r.get('answer') or {}).get('statements') or {}).items():
+                if sid in shown and x.get('support'):
+                    rated[sid] = x
+        labels[k] = rated
+        n_trials = len({shown[s]['trial'] for s in rated})
+        out += [f'## Rater {k}', '', f'Statements rated: {len(rated)} of {len(shown)}, on {n_trials} of {len(sheet["items"])} trials.', '',
+                '| Statements | Rated | Supported by the abstract | Not supported | Unsure | Supported, unsure left out |', '|---|---|---|---|---|---|']
+        groups = [('All', lambda m, s: True)]
+        groups += [('Kind: ' + kd, lambda m, s, kd=kd: m['kind'] == kd) for kd in sorted(kinds)]
+        groups += [('Read from the title', lambda m, s: s['where'] == 'title'), ('Read from the abstract', lambda m, s: s['where'] != 'title')]
+        for name, test in groups:
+            xs = [x for sid, x in rated.items() if test(meta[sid], shown[sid])]
+            c = collections.Counter(x['support'] for x in xs)
+            out.append(f'| {name} | {len(xs)} | {pct_ci(c["yes"], len(xs))} | {c["no"]} | {c["unsure"]} | {pct(c["yes"], c["yes"] + c["no"])} |')
+        out += ['', 'Statements of one trial are not independent, so the real intervals are somewhat wider.', '',
+                '| Predicate | Rated | Supported |', '|---|---|---|']
+        for pred, _ in collections.Counter(meta[s]['predicate'] for s in shown).most_common():
+            xs = [x for sid, x in rated.items() if meta[sid]['predicate'] == pred]
+            out.append(f'| {pred} | {len(xs)} | {pct(sum(x["support"] == "yes" for x in xs), len(xs))} |')
+        out += ['', 'A result of this trial (something found by comparing its groups). The question is not asked when the abstract does not support the statement.', '',
+                '| Statements | Rated | A result of the trial | Not a result | Unsure | Not asked | A result, of the supported ones |', '|---|---|---|---|---|---|---|']
+        for name, test in groups[:1 + len(kinds)]:
+            xs = [x for sid, x in rated.items() if test(meta[sid], shown[sid])]
+            c = collections.Counter(x.get('result') for x in xs)
+            sup = [x for x in xs if x['support'] == 'yes']
+            out.append(f'| {name} | {len(xs)} | {pct_ci(c["yes"], len(xs))} | {c["no"]} | {c["unsure"]} | {c[None]} | '
+                       f'{pct(sum(x.get("result") == "yes" for x in sup), len(sup))} |')
+        good = {shown[sid]['trial'] for sid, x in rated.items() if x['support'] == 'yes' and x.get('result') == 'yes'}
+        out += ['', f'Trials with at least one statement that is supported and a result of the trial: {pct(len(good), n_trials)} of the trials rated '
+                    f'({len(good)} of the {len(trials)} trials of the sample).', '']
+    if len(raters) >= 2:
+        k1, k2 = raters[:2]
+        both = sorted(set(labels[k1]) & set(labels[k2]))
+        out += [f'## Agreement between raters {k1} and {k2} on the statements', '', '| Answer | Rated by both | Same answer | Cohen\'s kappa |', '|---|---|---|---|']
+
+        def line(name, pairs):
+            r = kappa(pairs)
+            out.append(f'| {name} | {r["n"]} | {100 * r["agree"]:.1f}% | {r["kappa"]:.2f} |' if r else f'| {name} | 0 | | |')
+        line('Supported (yes, no, unsure)', [(labels[k1][s]['support'], labels[k2][s]['support']) for s in both])
+        line('Supported (yes against anything else)', [(labels[k1][s]['support'] == 'yes', labels[k2][s]['support'] == 'yes') for s in both])
+        line('A result of the trial (yes against anything else, not asked counted as no)',
+             [(labels[k1][s].get('result') == 'yes', labels[k2][s].get('result') == 'yes') for s in both])
+        line('A result of the trial (where both were asked)', [(labels[k1][s]['result'], labels[k2][s]['result']) for s in both
+                                                                if labels[k1][s].get('result') and labels[k2][s].get('result')])
+        n = len(both)
+        bo = sum(labels[k1][s]['support'] == 'yes' and labels[k2][s]['support'] == 'yes' for s in both)
+        out += ['', f'Statements both raters call supported: {pct_ci(bo, n)}.', '']
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('--ratings', required=True)
     ap.add_argument('--key', required=True)
     ap.add_argument('--items', default=DEFAULT_ITEMS)
+    ap.add_argument('--statements-key', help='statements_key.json of the evidence base (adds the second sheet to the report)')
+    ap.add_argument('--statements-items', default=DEFAULT_STATEMENTS)
     ap.add_argument('--out')
     a = ap.parse_args()
     key = json.load(open(a.key, encoding='utf-8'))
     items = {it['id']: it for s in json.load(open(a.items, encoding='utf-8'))['sheets'] if s['id'] == 'trials' for it in s['items']}
     fkey = {fid: {**f, 'trial': tid, 'stratum': t['stratum']} for tid, t in key['trials'].items() for fid, f in t['findings'].items()}
-    rows = [json.loads(line) for line in open(a.ratings, encoding='utf-8') if line.strip()]
-    rows = [r for r in rows if r.get('sheet') == 'trials' and r.get('item_id') in items and r.get('rater')]
+    all_rows = [json.loads(line) for line in open(a.ratings, encoding='utf-8') if line.strip()]
+    rows = [r for r in all_rows if r.get('sheet') == 'trials' and r.get('item_id') in items and r.get('rater')]
     raters = sorted({r['rater'] for r in rows})
     if not raters:
         sys.exit('score: no ratings of numbered raters in the file')
@@ -214,6 +299,8 @@ def main():
         ei = sum(labels[k1][f]['rating'] == 'correct' or labels[k2][f]['rating'] == 'correct' for f in passing)
         out += ['', f'Passing findings both raters call correct: {pct_ci(bo, n)}. At least one rater: {pct(ei, n)}.',
                 'The findings on which the two differ go to a third reader, and the resolved labels are the final ones.', '']
+    if a.statements_key:
+        out += statements_part(all_rows, a.statements_key, a.statements_items)
     text = '\n'.join(out) + '\n'
     if a.out:
         open(a.out, 'w', encoding='utf-8').write(text)

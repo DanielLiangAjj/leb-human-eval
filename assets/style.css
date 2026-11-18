@@ -263,3 +263,26 @@ kbd { font-family: var(--mono); font-size: 13px; line-height: 1; padding: 3px 6p
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* ---- statements screen (second sheet; shown only when config.js turns it on) ----------------- */
+.stmt { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px 10px; margin: 8px 0; }
+.stmt-head { display: flex; align-items: baseline; gap: 10px; }
+.stmt-no { display: inline-flex; align-items: center; justify-content: center; min-width: 24px; height: 24px; padding: 0 6px; border-radius: 6px; background: #eef1f4; color: var(--muted); font-size: 13px; font-weight: 700; flex: none; }
+.stmt-text { flex: 1; font-weight: 650; font-size: 17px; overflow-wrap: anywhere; }
+.stmt-from { margin: 2px 0 0 34px; font-size: 14px; color: var(--muted); }
+.stmt-qs { display: flex; flex-wrap: wrap; gap: 2px 26px; margin: 6px 0 0 34px; }
+.stmt-q { margin: 2px 0; gap: 6px 10px; }
+.stmt-q .q-label { font-weight: 600; font-size: 15px; min-width: 232px; }
+.stmt .choices { gap: 6px; }
+.stmt .choice { min-width: 0; padding: 5px 11px; font-size: 15px; gap: 7px; border-width: 1.5px; border-radius: 8px; }
+.stmt-q.not-asked .q-label { color: var(--faint); }
+.stmt-foot { margin: 2px 0 0 34px; }
+.stmt-add { font-size: 14px; padding: 0; }
+.stmt-note { margin: 6px 0 2px; }
+.stmt-note .field-label { font-size: 15px; }
+.stmt-note input { padding: 7px 10px; }
+.statements .trial-title .ev { text-decoration-thickness: 2px; }
+@media (max-width: 640px) {
+  .stmt-from, .stmt-qs, .stmt-foot { margin-left: 0; }
+  .stmt-q .q-label { min-width: 0; flex-basis: 100%; }
+}

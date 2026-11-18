@@ -41,6 +41,7 @@ next to it with the same two exports; it overrides `config.js` everywhere except
 ```js
 export const SUPABASE_URL = 'https://<project-ref>.supabase.co';
 export const SUPABASE_ANON_KEY = '<anon public key>';
+export const STATEMENTS_SHEET = true;   // optional: show the second sheet locally
 ```
 
 To start over as a tester, clear the site's storage in the browser (all keys start with `leb:`).
@@ -132,9 +133,49 @@ subgroups, registration number and its source), the findings in the order of the
 C, O and their standard names, where the comparator was named, direction, the measure itself when the
 outcome is named as a reduction, time point, primary-outcome flag, how the abstract words the result,
 the numbers read for the comparison, the sentence with the words that state the effect, and where it sits
-in the abstract) and how many findings are not shown. A second sheet,
-`statements` (statements of two systems rated blind, for the comparison with SemMedDB), is reserved:
-the database accepts it and the site skips a sheet that is not in the file.
+in the abstract) and how many findings are not shown. The second sheet, `statements`, has its own file
+and its own section below.
+
+## The second sheet: statements of another program (off by default)
+
+A short second part for the same raters: the statements that another, published program reads from the
+same abstracts, each as one plain sentence ("Orlistat treats Obesity."). The site does not say which
+program. One screen per trial: the abstract on the left, with the sentence a statement was read from
+underlined when the rater points at it (the title when it came from the title); on the right one row
+per statement with two questions:
+
+- **A. Does the abstract support it?** Yes, No or Unsure. A comment is required with Unsure and optional
+  otherwise.
+- **B. Is it a result of this trial** (something found by comparing its groups)? Yes, No or Unsure. Not
+  asked when A is No.
+
+Keys: `1 2 3` answer A, `Y N U` answer B, `J K` move between statements, Enter is Next, `B` is Back.
+
+The sheet is **off** unless `config.js` says `export const STATEMENTS_SHEET = true;`. While it is off the
+site loads and shows the trials sheet only, exactly as before: `data/statements.json` is not fetched, the
+time estimate and the finish screen do not change. When it is on, the statements follow the trials (the
+page between the two parts says that this is a good place to stop), the welcome page lists both parts with
+their time (about 12 seconds per statement), and a rater who had already finished the trials is taken to
+the statements on the next visit. `config.local.js` can set `STATEMENTS_SHEET` for local testing.
+
+`data/statements.json` is written by `scripts/clinician_statements.py` of the evidence base repository,
+from the same sample: 29 of the 50 trials have a statement, 132 statements in all, at most 13 per trial.
+It names no source, no predicate code, no concept identifier and no PubMed id. The key that says which
+statement is which (`statements_key.json`) stays in the evidence base repository, like the other key.
+
+One answer per evaluator and trial (sheet `statements`, item id = the trial id):
+
+```json
+{"statements": {"T07s1": {"support": "yes" | "no" | "unsure",
+                          "result":  "yes" | "no" | "unsure" | null,
+                          "note": "..."}}}
+```
+
+`result` is null when `support` is "no". `scripts/pull_ratings.py` writes `rater<k>_statements.tsv` when
+somebody has rated a statement, and `scripts/score.py --statements-key <path to statements_key.json>`
+adds to the report: the share of statements the abstract supports (with a Wilson interval, by kind and by
+predicate), the share that are a result of the trial, the trials with at least one supported result, and
+the two raters' agreement (raw and Cohen's kappa).
 
 ## Files
 
@@ -143,11 +184,13 @@ index.html, 404.html, config.js        page shell, deep-link redirect, Supabase 
 assets/app.js                          entry: settings, items, first screen
 assets/views.js                        screens and flow (welcome, intro, trial, pause, finish)
 assets/trial.js                        the trial screen: abstract, PICO layout, controls, answer JSON
+assets/statements.js                   the statements screen (second sheet, off by default)
 assets/state.js, storage.js,           session and trial order, localStorage (answers, drafts, queue),
   sync.js, api.js, prng.js,            save queue with retries, Supabase RPC calls, seeded shuffle,
   markdown.js, dom.js                  guide markdown
 assets/style.css
 data/items.json                        the trials (generated)
+data/statements.json                   the statements of the second sheet (generated; loaded only when the sheet is on)
 supabase/schema.sql, supabase/README.md
 scripts/pull_ratings.py, scripts/score.py
 ```

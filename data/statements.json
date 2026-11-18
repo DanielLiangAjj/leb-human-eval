@@ -1,0 +1,2005 @@
+{
+ "version": "clinician_50 statements 2026-11-17",
+ "sheet": {
+  "id": "statements",
+  "title": "Statements by trial",
+  "short": "short statements another program read from the same abstracts",
+  "instructions": "These statements were written by **another program** from the same abstracts. Each is one short sentence about two things, for example \"Orlistat treats Obesity.\" The program uses its own standard names, so a statement can read stiffly (\"Diabetes Mellitus, Non-Insulin-Dependent\").\n\nPoint at a statement to see, underlined in the abstract, the sentence it was read from. For each statement there are two questions.\n\n**A. Does the abstract support this statement?** Judge it against the sentence it was read from, read in the light of the whole abstract. **Yes** when the abstract says this. **No** when it says something else, the opposite or nothing of the kind, or when the statement is too garbled to mean anything. **Unsure** when you cannot decide; a short comment is then required.\n\n**B. Is it a result of this trial?** **Yes** when the statement tells something the trial found by comparing its groups, for example that an outcome was lower with one treatment than with the other. **No** when it is background, the aim of the study, who was given what, or a general fact. The question is not asked when the answer to A is No.\n\nJudge from the abstract alone. A statement can be true in general and still not be supported by this abstract: answer for this abstract. A comment is welcome on any statement and required only with Unsure on question A.",
+  "items": [
+   {
+    "id": "T01",
+    "title": "A Randomised Trial to Optimise Gestational Weight Gain and Improve Maternal and Infant Health Outcomes through Antenatal Dietary, Lifestyle and Exercise Advice: The OPTIMISE Randomised Trial.",
+    "journal": "Nutrients",
+    "year": 2019,
+    "abstract": [
+     {
+      "label": "",
+      "text": "There are well-recognised associations between excessive gestational weight gain (GWG) and adverse pregnancy outcomes, including an increased risk of pre-eclampsia, gestational diabetes and caesarean birth. The aim of the OPTIMISE randomised trial was to evaluate the effect of dietary and exercise advice among pregnant women of normal body mass index (BMI), on pregnancy and birth outcomes. The trial was conducted in Adelaide, South Australia. Pregnant women with a body mass index in the healthy weight range (18.5-24.9 kg/m2) were enrolled in a randomised controlled trial of a dietary and lifestyle intervention versus standard antenatal care. The dietitian-led dietary and lifestyle intervention over the course of pregnancy was based on the Australian Guide to Healthy Eating. Baseline characteristics of women in the two treatment groups were similar. There was no statistically significant difference in the proportion of infants with birth weight above 4.0 kg between the Lifestyle Advice and Standard Care groups (24/316 (7.59%) Lifestyle Advice versus 26/313 (8.31%) Standard Care; adjusted risk ratio (aRR) 0.91; 95% confidence interval (CI) 0.54 to 1.55; p = 0.732). Despite improvements in maternal diet quality, no significant differences between the treatment groups were observed for total GWG, or other pregnancy and birth outcomes."
+     }
+    ],
+    "statements": [
+     {
+      "id": "T01s1",
+      "text": "Diabetes, Gestational predisposes to Pre-Eclampsia.",
+      "where": "abstract",
+      "span": [
+       0,
+       0,
+       206
+      ],
+      "sentence": "There are well-recognised associations between excessive gestational weight gain (GWG) and adverse pregnancy outcomes, including an increased risk of pre-eclampsia, gestational diabetes and caesarean birth."
+     }
+    ]
+   },
+   {
+    "id": "T02",
+    "title": "The influence of physical training modalities on basal metabolic rate and leptin on obese adolescent boys.",
+    "journal": "JPMA. The Journal of the Pakistan Medical Association",
+    "year": 2018,
+    "abstract": [
+     {
+      "label": "",
+      "text": "The aim of this study was to investigate the effects of physical training modalities on basal metabolic rate, cardiovascular fitness and serum leptin level in obese adolescent boys. Sixteen obese adolescent boys (age: 16.81 +- 0.91 years) were randomly assigned to either resistance (RTG) (n=8) or endurance (ETG) (n=8) training and followed the respective training programmes for six months (3 days/wk, 60 min/day). Leptin, basal metabolism rate (BMR), and maximum oxygen consumption (VO2max) were evaluated at the beginning and end of the intervention. After the training period, Leptin was decreased and VO2max was increased in both groups (p<0.05), whereas BMR was statistically increased only in ETG (p<0.05). These results indicated that both types of exercises had positive effects on cardiovascular fitness and hormonal control of fat metabolism in obese male adolescents. Resistance exercises should be considered as an alternative or supplementation to endurance exercises in youth obesity management."
+     }
+    ],
+    "statements": [
+     {
+      "id": "T02s1",
+      "text": "Physical modalities affects Basal metabolic rate.",
+      "where": "title",
+      "span": null,
+      "sentence": "The influence of physical training modalities on basal metabolic rate and leptin on obese adolescent boys."
+     },
+     {
+      "id": "T02s2",
+      "text": "Leptin treats Obesity.",
+      "where": "abstract",
+      "span": [
+       0,
+       0,
+       181
+      ],
+      "sentence": "The aim of this study was to investigate the effects of physical training modalities on basal metabolic rate, cardiovascular fitness and serum leptin level in obese adolescent boys."
+     },
+     {
+      "id": "T02s3",
+      "text": "Physical modalities affects Basal metabolic rate.",
+      "where": "abstract",
+      "span": [
+       0,
+       0,
+       181
+      ],
+      "sentence": "The aim of this study was to investigate the effects of physical training modalities on basal metabolic rate, cardiovascular fitness and serum leptin level in obese adolescent boys."
+     },
+     {
+      "id": "T02s4",
+      "text": "Leptin treats Adolescents, Male.",
+      "where": "abstract",
+      "span": [
+       0,
+       0,
+       181
+      ],
+      "sentence": "The aim of this study was to investigate the effects of physical training modalities on basal metabolic rate, cardiovascular fitness and serum leptin level in obese adolescent boys."
+     },
+     {
+      "id": "T02s5",
+      "text": "Supplementation treats Obesity.",
+      "where": "abstract",
+      "span": [
+       0,
+       881,
+       1011
+      ],
+      "sentence": "Resistance exercises should be considered as an alternative or supplementation to endurance exercises in youth obesity management."
+     }
+    ]
+   },
+   {
+    "id": "T03",
+    "title": "Consistency of effect of ezetimibe/simvastatin compared with intensified lipid-lowering treatment strategies in obese and non-obese diabetic subjects.",
+    "journal": "Lipids in health and disease",
+    "year": 2013,
+    "abstract": [
+     {
+      "label": "PURPOSE",
+      "text": "This post hoc analysis assessed switching to ezetimibe/simvastatin 10/20 mg vs doubling the baseline statin dose to simvastatin 40 mg or atorvastatin 20 mg or switching to rosuvastatin 10 mg in subgroups of obese (BMI ≥30 kg/m2) and non-obese (BMI <30 kg/m2) diabetic subjects."
+     },
+     {
+      "label": "METHODS",
+      "text": "This was a randomized, double-blind, 12-week study of adults 18-79 years with cardiovascular disease with low-density lipoprotein cholesterol (LDL-C) ≥70 and ≤160 mg/dl. Percent change in LDL-C and other lipids was estimated."
+     },
+     {
+      "label": "RESULTS",
+      "text": "In obese subjects (n = 466), percent changes in LDL-C and most other lipids were greater with ezetimibe/simvastatin vs doubling the baseline statin dose or switching to rosuvastatin. In non-obese subjects (n = 342), percent changes in LDL-C, total cholesterol, non-HDL-C, Apo B and Apo A-I were greater with ezetimibe/simvastatin vs doubling the baseline statin dose or switching to rosuvastatin; and treatment with ezetimibe/simvastatin resulted in greater changes in triglycerides vs rosuvastatin and HDL-C vs doubling the baseline statin dose. The safety profiles were generally similar."
+     },
+     {
+      "label": "CONCLUSIONS",
+      "text": "Regardless of baseline obesity status, switching to ezetimibe/simvastatin was more effective at reducing LDL-C, total cholesterol, non-HDL-C, and Apo B vs doubling the baseline statin dose to simvastatin 40 mg or atorvastatin 20 mg or switching to rosuvastatin 10 mg."
+     }
+    ],
+    "statements": [
+     {
+      "id": "T03s1",
+      "text": "Ezetimibe + simvastatin is compared with Therapeutic procedure.",
+      "where": "title",
+      "span": null,
+      "sentence": "Consistency of effect of ezetimibe/simvastatin compared with intensified lipid-lowering treatment strategies in obese and non-obese diabetic subjects."
+     },
+     {
+      "id": "T03s2",
+      "text": "Ezetimibe + simvastatin treats Obesity.",
+      "where": "title",
+      "span": null,
+      "sentence": "Consistency of effect of ezetimibe/simvastatin compared with intensified lipid-lowering treatment strategies in obese and non-obese diabetic subjects."
+     },
+     {
+      "id": "T03s3",
+      "text": "Ezetimibe + simvastatin treats Diabetic.",
+      "where": "title",
+      "span": null,
+      "sentence": "Consistency of effect of ezetimibe/simvastatin compared with intensified lipid-lowering treatment strategies in obese and non-obese diabetic subjects."
+     },
+     {
+      "id": "T03s4",
+      "text": "Triglycerides is compared with rosuvastatin.",
+      "where": "abstract",
+      "span": [
+       2,
+       183,
+       546
+      ],
+      "sentence": "In non-obese subjects (n = 342), percent changes in LDL-C, total cholesterol, non-HDL-C, Apo B and Apo A-I were greater with ezetimibe/simvastatin vs doubling the baseline statin dose or switching to rosuvastatin; and treatment with ezetimibe/simvastatin resulted in greater changes in triglycerides vs rosuvastatin and HDL-C vs doubling the baseline statin dose."
+     }
+    ]
+   },
+   {
+    "id": "T04",
+    "title": "Dexfenfluramine in obese Chinese NIDDM patients. A placebo-controlled investigation of the effects on body weight, glycemic control, and cardiovascular risk factors.",
+    "journal": "Diabetes care",
+    "year": 1997,
+    "abstract": [
+     {
+      "label": "OBJECTIVE",
+      "text": "To investigate the safety, efficacy, and metabolic effects of dexfenfluramine in obese Chinese NIDDM patients."
+     },
+     {
+      "label": "RESEARCH DESIGN AND METHODS",
+      "text": "Thirty-two patients, mean (+/- SD) body weight 76.2 +/- 8.5 kg with corresponding BMI 31.1 +/- 2.1 kg/m2, were randomized into a two-phase study, after a 2-week single-blind run-in period on placebo. Phase 1 was a randomized 3-month double-blind placebo-controlled trial during which either dexfenfluramine or placebo was added to the existing treatment regimens of diet plus or minus sulfonylureas without metformin. Phase 2 was a further 3-month single-blind trial during which the placebo group was given dexfenfluramine without patients' knowledge of changing to active medication, while the active group continued with dexfenfluramine. Body weight, glycemic control, blood pressure, lipids, and quality of life were assessed before and at 3 and 6 months after randomization. A total of 27 patients were also followed for an additional period of 6-12 months (215 +/- 53 days) after dexfenfluramine treatment was withdrawn."
+     },
+     {
+      "label": "RESULTS",
+      "text": "During the run-in period, both groups were comparable for all parameters measured. At 3 months, mean changes in BMI were -1.2 +/- 1.0 kg/m2 (dexfenfluramine) vs. -0.1 +/- 0.5 kg/m2 (placebo) (P < 0.001). The mean changes in fasting plasma glucose were -1.14 +/- 0.99 vs. 0.51 +/- 1.34 mmol/l (dexfenfluramine vs. placebo, P = 0.004). HbA(1c) also significantly improved in the dexfenfluramine group (-0.80 +/- 0.53 vs. 0.25 +/- 0.64%, P < 0.001). During the 3-month single-blind dexfenfluramine treatment in the ex-placebo group, there were similar improvements in body weight and glycemic indexes. After cessation of dexfenfluramine therapy at 6 months, significant increases in body weight and glycemic indexes, almost back to the baseline, were observed for both groups."
+     },
+     {
+      "label": "CONCLUSIONS",
+      "text": "Dexfenfluramine aids weight loss and improves glycemic control in obese Chinese NIDDM patients over a 3- to 6-month period. These effects are emphasized after withdrawal of treatment and further support the longer-term use of dexfenfluramine for chronic complicated obesity."
+     }
+    ],
+    "statements": [
+     {
+      "id": "T04s1",
+      "text": "Dexfenfluramine treats Diabetes Mellitus, Non-Insulin-Dependent.",
+      "where": "title",
+      "span": null,
+      "sentence": "Dexfenfluramine in obese Chinese NIDDM patients. A placebo-controlled investigation of the effects on body weight, glycemic control, and cardiovascular risk factors."
+     },
+     {
+      "id": "T04s2",
+      "text": "Dexfenfluramine treats Patients.",
+      "where": "title",
+      "span": null,
+      "sentence": "Dexfenfluramine in obese Chinese NIDDM patients. A placebo-controlled investigation of the effects on body weight, glycemic control, and cardiovascular risk factors."
+     },
+     {
+      "id": "T04s3",
+      "text": "Dexfenfluramine treats Diabetes Mellitus, Non-Insulin-Dependent.",
+      "where": "abstract",
+      "span": [
+       0,
+       0,
+       110
+      ],
+      "sentence": "To investigate the safety, efficacy, and metabolic effects of dexfenfluramine in obese Chinese NIDDM patients."
+     },
+     {
+      "id": "T04s4",
+      "text": "Dexfenfluramine treats Patients.",
+      "where": "abstract",
+      "span": [
+       0,
+       0,
+       110
+      ],
+      "sentence": "To investigate the safety, efficacy, and metabolic effects of dexfenfluramine in obese Chinese NIDDM patients."
+     },
+     {
+      "id": "T04s5",
+      "text": "Therapeutic procedure treats Body Weight.",
+      "where": "abstract",
+      "span": [
+       2,
+       447,
+       598
+      ],
+      "sentence": "During the 3-month single-blind dexfenfluramine treatment in the ex-placebo group, there were similar improvements in body weight and glycemic indexes."
+     },
+     {
+      "id": "T04s6",
+      "text": "Therapeutic procedure treats Body Weight.",
+      "where": "abstract",
+      "span": [
+       2,
+       599,
+       773
+      ],
+      "sentence": "After cessation of dexfenfluramine therapy at 6 months, significant increases in body weight and glycemic indexes, almost back to the baseline, were observed for both groups."
+     },
+     {
+      "id": "T04s7",
+      "text": "Dexfenfluramine treats Obesity.",
+      "where": "abstract",
+      "span": [
+       3,
+       124,
+       274
+      ],
+      "sentence": "These effects are emphasized after withdrawal of treatment and further support the longer-term use of dexfenfluramine for chronic complicated obesity."
+     }
+    ]
+   },
+   {
+    "id": "T05",
+    "title": "Liraglutide Reduces CNS Activation in Response to Visual Food Cues Only After Short-term Treatment in Patients With Type 2 Diabetes.",
+    "journal": "Diabetes care",
+    "year": 2015,
+    "abstract": [
+     {
+      "label": "OBJECTIVE",
+      "text": "Glucagon-like peptide-1 receptor agonists (GLP-1RAs) are associated with reduced appetite and body weight. We investigated whether these effects could be mediated by the central nervous system (CNS)."
+     },
+     {
+      "label": "RESEARCH DESIGN AND METHODS",
+      "text": "We performed a randomized crossover study in obese patients with type 2 diabetes (n = 20, mean age 59.3 ± 4.1 years, mean BMI 32 ± 4.7 kg/m(2)), consisting of two periods of 12-week treatment with either liraglutide 1.8 mg or insulin glargine. Using functional MRI, we determined the effects of treatment on CNS responses to viewing food pictures in the fasted condition and 30 min after meal intake."
+     },
+     {
+      "label": "RESULTS",
+      "text": "After 12 weeks, the decrease in HbA1c was larger with liraglutide versus insulin glargine (Δ-0.7% vs. -0.2%, P < 0.001). Body weight decreased during liraglutide versus insulin glargine (Δ-3.3 kg vs. 0.8 kg, P < 0.001). After 10 days, patients treated with liraglutide, compared with insulin glargine, showed decreased responses to food pictures in insula and putamen (P ≤ 0.02). In addition, liraglutide enhanced the satiating effect of meal intake on responses in putamen and amygdala (P ≤ 0.05). Differences between liraglutide and insulin glargine were not observed after 12 weeks."
+     },
+     {
+      "label": "CONCLUSIONS",
+      "text": "Compared with insulin, liraglutide decreased CNS activation significantly only after short-term treatment, suggesting that these effects of GLP-1RA on the CNS may contribute to the induction of weight loss, but not necessarily to its maintenance, in view of the absence of an effect of liraglutide on CNS activation in response to food pictures after longer-term treatment."
+     }
+    ],
+    "statements": [
+     {
+      "id": "T05s1",
+      "text": "Liraglutide treats Diabetes Mellitus, Non-Insulin-Dependent.",
+      "where": "title",
+      "span": null,
+      "sentence": "Liraglutide Reduces CNS Activation in Response to Visual Food Cues Only After Short-term Treatment in Patients With Type 2 Diabetes."
+     },
+     {
+      "id": "T05s2",
+      "text": "Liraglutide treats Patients.",
+      "where": "title",
+      "span": null,
+      "sentence": "Liraglutide Reduces CNS Activation in Response to Visual Food Cues Only After Short-term Treatment in Patients With Type 2 Diabetes."
+     },
+     {
+      "id": "T05s3",
+      "text": "Liraglutide is compared with Insulin, Glargine, Human.",
+      "where": "abstract",
+      "span": [
+       2,
+       0,
+       120
+      ],
+      "sentence": "After 12 weeks, the decrease in HbA1c was larger with liraglutide versus insulin glargine (Δ-0.7% vs. -0.2%, P < 0.001)."
+     },
+     {
+      "id": "T05s4",
+      "text": "Liraglutide is compared with Insulin, Glargine, Human.",
+      "where": "abstract",
+      "span": [
+       2,
+       121,
+       219
+      ],
+      "sentence": "Body weight decreased during liraglutide versus insulin glargine (Δ-3.3 kg vs. 0.8 kg, P < 0.001)."
+     },
+     {
+      "id": "T05s5",
+      "text": "Liraglutide is compared with Insulin, Glargine, Human.",
+      "where": "abstract",
+      "span": [
+       2,
+       220,
+       379
+      ],
+      "sentence": "After 10 days, patients treated with liraglutide, compared with insulin glargine, showed decreased responses to food pictures in insula and putamen (P ≤ 0.02)."
+     },
+     {
+      "id": "T05s6",
+      "text": "Insulin, Glargine, Human treats Patients.",
+      "where": "abstract",
+      "span": [
+       2,
+       220,
+       379
+      ],
+      "sentence": "After 10 days, patients treated with liraglutide, compared with insulin glargine, showed decreased responses to food pictures in insula and putamen (P ≤ 0.02)."
+     },
+     {
+      "id": "T05s7",
+      "text": "Liraglutide treats Patients.",
+      "where": "abstract",
+      "span": [
+       2,
+       220,
+       379
+      ],
+      "sentence": "After 10 days, patients treated with liraglutide, compared with insulin glargine, showed decreased responses to food pictures in insula and putamen (P ≤ 0.02)."
+     },
+     {
+      "id": "T05s8",
+      "text": "Liraglutide affects Neuraxis.",
+      "where": "abstract",
+      "span": [
+       3,
+       0,
+       373
+      ],
+      "sentence": "Compared with insulin, liraglutide decreased CNS activation significantly only after short-term treatment, suggesting that these effects of GLP-1RA on the CNS may contribute to the induction of weight loss, but not necessarily to its maintenance, in view of the absence of an effect of liraglutide on CNS activation in response to food pictures after longer-term treatment."
+     },
+     {
+      "id": "T05s9",
+      "text": "Insulin causes Body Weight decreased.",
+      "where": "abstract",
+      "span": [
+       3,
+       0,
+       373
+      ],
+      "sentence": "Compared with insulin, liraglutide decreased CNS activation significantly only after short-term treatment, suggesting that these effects of GLP-1RA on the CNS may contribute to the induction of weight loss, but not necessarily to its maintenance, in view of the absence of an effect of liraglutide on CNS activation in response to food pictures after longer-term treatment."
+     },
+     {
+      "id": "T05s10",
+      "text": "Therapeutic procedure is compared with Induction.",
+      "where": "abstract",
+      "span": [
+       3,
+       0,
+       373
+      ],
+      "sentence": "Compared with insulin, liraglutide decreased CNS activation significantly only after short-term treatment, suggesting that these effects of GLP-1RA on the CNS may contribute to the induction of weight loss, but not necessarily to its maintenance, in view of the absence of an effect of liraglutide on CNS activation in response to food pictures after longer-term treatment."
+     }
+    ]
+   },
+   {
+    "id": "T08",
+    "title": "Placebo-controlled, blind study of dietary manipulation therapy in rheumatoid arthritis.",
+    "journal": "Lancet (London, England)",
+    "year": 1986,
+    "abstract": [
+     {
+      "label": "",
+      "text": "In a blind, placebo-controlled study of dietary manipulation therapy in outpatients with rheumatoid arthritis there was significant objective improvement during periods of dietary therapy compared with periods of placebo treatment, particularly among \"good responders\". Possible explanations for improvement include reduced food intolerance, reduced gastrointestinal permeability, and benefit from weight loss and from altered intake of substrates for prostaglandin production. A proportion of the improvement was due to a placebo response, but this was not sufficient to explain the whole improvement."
+     }
+    ],
+    "statements": [
+     {
+      "id": "T08s1",
+      "text": "Manipulation Therapy treats Rheumatoid Arthritis.",
+      "where": "title",
+      "span": null,
+      "sentence": "Placebo-controlled, blind study of dietary manipulation therapy in rheumatoid arthritis."
+     },
+     {
+      "id": "T08s2",
+      "text": "Manipulation Therapy treats Rheumatoid Arthritis.",
+      "where": "abstract",
+      "span": [
+       0,
+       0,
+       269
+      ],
+      "sentence": "In a blind, placebo-controlled study of dietary manipulation therapy in outpatients with rheumatoid arthritis there was significant objective improvement during periods of dietary therapy compared with periods of placebo treatment, particularly among \"good responders\"."
+     },
+     {
+      "id": "T08s3",
+      "text": "Manipulation Therapy treats Outpatients.",
+      "where": "abstract",
+      "span": [
+       0,
+       0,
+       269
+      ],
+      "sentence": "In a blind, placebo-controlled study of dietary manipulation therapy in outpatients with rheumatoid arthritis there was significant objective improvement during periods of dietary therapy compared with periods of placebo treatment, particularly among \"good responders\"."
+     },
+     {
+      "id": "T08s4",
+      "text": "Placebos treats Visually Impaired Persons.",
+      "where": "abstract",
+      "span": [
+       0,
+       0,
+       269
+      ],
+      "sentence": "In a blind, placebo-controlled study of dietary manipulation therapy in outpatients with rheumatoid arthritis there was significant objective improvement during periods of dietary therapy compared with periods of placebo treatment, particularly among \"good responders\"."
+     }
+    ]
+   },
+   {
+    "id": "T09",
+    "title": "Enhanced motivational interviewing for reducing weight and increasing physical activity in adults with high cardiovascular risk: the MOVE IT three-arm RCT.",
+    "journal": "Health technology assessment (Winchester, England)",
+    "year": 2019,
+    "abstract": [
+     {
+      "label": "BACKGROUND",
+      "text": "Motivational interviewing (MI) enhanced with behaviour change techniques (BCTs) and deployed by health trainers targeting multiple risk factors for cardiovascular disease (CVD) may be more effective than interventions targeting a single risk factor."
+     },
+     {
+      "label": "OBJECTIVES",
+      "text": "The clinical effectiveness and cost-effectiveness of an enhanced lifestyle motivational interviewing intervention for patients at high risk of CVD in group settings versus individual settings and usual care (UC) in reducing weight and increasing physical activity (PA) were tested."
+     },
+     {
+      "label": "DESIGN",
+      "text": "This was a three-arm, single-blind, parallel randomised controlled trial."
+     },
+     {
+      "label": "SETTING",
+      "text": "A total of 135 general practices across all 12 South London Clinical Commissioning Groups were recruited."
+     },
+     {
+      "label": "PARTICIPANTS",
+      "text": "A total of 1742 participants aged 40-74 years with a ≥ 20.0% risk of a CVD event in the following 10 years were randomised."
+     },
+     {
+      "label": "INTERVENTIONS",
+      "text": "The intervention was designed to integrate MI and cognitive-behavioural therapy (CBT), delivered by trained healthy lifestyle facilitators in 10 sessions over 1 year, in group or individual format. The control group received UC."
+     },
+     {
+      "label": "RANDOMISATION",
+      "text": "Simple randomisation was used with computer-generated randomisation blocks. In each block, 10 participants were randomised to the group, individual or UC arm in a 4 : 3 : 3 ratio. Researchers were blind to the allocation."
+     },
+     {
+      "label": "MAIN OUTCOME MEASURES",
+      "text": "The primary outcomes are change in weight (kg) from baseline and change in PA (average number of steps per day over 1 week) from baseline at the 24-month follow-up, with an interim follow-up at 12 months. An economic evaluation estimates the relative cost-effectiveness of each intervention. Secondary outcomes include changes in low-density lipoprotein cholesterol and CVD risk score."
+     },
+     {
+      "label": "RESULTS",
+      "text": "The mean age of participants was 69.75 years (standard deviation 4.11 years), 85.5% were male and 89.4% were white. At the 24-month follow-up, the group and individual intervention arms were not more effective than UC in increasing PA [mean 70.05 steps, 95% confidence interval (CI) -288 to 147.9 steps, and mean 7.24 steps, 95% CI -224.01 to 238.5 steps, respectively] or in reducing weight (mean -0.03 kg, 95% CI -0.49 to 0.44 kg, and mean -0.42 kg, 95% CI -0.93 to 0.09 kg, respectively). At the 12-month follow-up, the group and individual intervention arms were not more effective than UC in increasing PA (mean 131.1 steps, 95% CI -85.28 to 347.48 steps, and mean 210.22 steps, 95% CI -19.46 to 439.91 steps, respectively), but there were reductions in weight for the group and individual intervention arms compared with UC (mean -0.52 kg, 95% CI -0.90 to -0.13 kg, and mean -0.55 kg, 95% CI -0.95 to -0.14 kg, respectively). The group intervention arm was not more effective than the individual intervention arm in improving outcomes at either follow-up point. The group and individual interventions were not cost-effective."
+     },
+     {
+      "label": "CONCLUSIONS",
+      "text": "Enhanced MI, in group or individual formats, targeted at members of the general population with high CVD risk is not effective in reducing weight or increasing PA compared with UC. Future work should focus on ensuring objective evidence of high competency in BCTs, identifying those with modifiable factors for CVD risk and improving engagement of patients and primary care."
+     },
+     {
+      "label": "TRIAL REGISTRATION",
+      "text": "Current Controlled Trials ISRCTN84864870."
+     },
+     {
+      "label": "FUNDING",
+      "text": "This project was funded by the National Institute for Health Research (NIHR) Health Technology Assessment programme and will be published in full in Health Technology Assessment; Vol. 23, No. 69. See the NIHR Journals Library website for further project information. This research was part-funded by the NIHR Biomedical Research Centre at South London and Maudsley NHS Foundation Trust and King's College London."
+     }
+    ],
+    "statements": [
+     {
+      "id": "T09s1",
+      "text": "Exercise treats American College of Cardiology/American Heart Association Lesion Complexity Score C.",
+      "where": "title",
+      "span": null,
+      "sentence": "Enhanced motivational interviewing for reducing weight and increasing physical activity in adults with high cardiovascular risk: the MOVE IT three-arm RCT."
+     },
+     {
+      "id": "T09s2",
+      "text": "Exercise treats Adult.",
+      "where": "title",
+      "span": null,
+      "sentence": "Enhanced motivational interviewing for reducing weight and increasing physical activity in adults with high cardiovascular risk: the MOVE IT three-arm RCT."
+     },
+     {
+      "id": "T09s3",
+      "text": "Exercise treats American College of Cardiology/American Heart Association Lesion Complexity Score C.",
+      "where": "abstract",
+      "span": [
+       0,
+       0,
+       249
+      ],
+      "sentence": "Motivational interviewing (MI) enhanced with behaviour change techniques (BCTs) and deployed by health trainers targeting multiple risk factors for cardiovascular disease (CVD) may be more effective than interventions targeting a single risk factor."
+     },
+     {
+      "id": "T09s4",
+      "text": "Exercise treats Adult.",
+      "where": "abstract",
+      "span": [
+       0,
+       0,
+       249
+      ],
+      "sentence": "Motivational interviewing (MI) enhanced with behaviour change techniques (BCTs) and deployed by health trainers targeting multiple risk factors for cardiovascular disease (CVD) may be more effective than interventions targeting a single risk factor."
+     },
+     {
+      "id": "T09s5",
+      "text": "Risk factors predisposes to Cardiovascular Diseases.",
+      "where": "abstract",
+      "span": [
+       0,
+       0,
+       249
+      ],
+      "sentence": "Motivational interviewing (MI) enhanced with behaviour change techniques (BCTs) and deployed by health trainers targeting multiple risk factors for cardiovascular disease (CVD) may be more effective than interventions targeting a single risk factor."
+     },
+     {
+      "id": "T09s6",
+      "text": "Exercise stimulates Behavior Therapy.",
+      "where": "abstract",
+      "span": [
+       0,
+       0,
+       249
+      ],
+      "sentence": "Motivational interviewing (MI) enhanced with behaviour change techniques (BCTs) and deployed by health trainers targeting multiple risk factors for cardiovascular disease (CVD) may be more effective than interventions targeting a single risk factor."
+     },
+     {
+      "id": "T09s7",
+      "text": "Exercise treats risk factors.",
+      "where": "abstract",
+      "span": [
+       0,
+       0,
+       249
+      ],
+      "sentence": "Motivational interviewing (MI) enhanced with behaviour change techniques (BCTs) and deployed by health trainers targeting multiple risk factors for cardiovascular disease (CVD) may be more effective than interventions targeting a single risk factor."
+     },
+     {
+      "id": "T09s8",
+      "text": "Motivational Interviewing treats Patients.",
+      "where": "abstract",
+      "span": [
+       1,
+       0,
+       281
+      ],
+      "sentence": "The clinical effectiveness and cost-effectiveness of an enhanced lifestyle motivational interviewing intervention for patients at high risk of CVD in group settings versus individual settings and usual care (UC) in reducing weight and increasing physical activity (PA) were tested."
+     },
+     {
+      "id": "T09s9",
+      "text": "Follow-up treats Behavior showing increased motor activity.",
+      "where": "abstract",
+      "span": [
+       8,
+       116,
+       491
+      ],
+      "sentence": "At the 24-month follow-up, the group and individual intervention arms were not more effective than UC in increasing PA [mean 70.05 steps, 95% confidence interval (CI) -288 to 147.9 steps, and mean 7.24 steps, 95% CI -224.01 to 238.5 steps, respectively] or in reducing weight (mean -0.03 kg, 95% CI -0.49 to 0.44 kg, and mean -0.42 kg, 95% CI -0.93 to 0.09 kg, respectively)."
+     },
+     {
+      "id": "T09s10",
+      "text": "Follow-up treats Behavior showing increased motor activity.",
+      "where": "abstract",
+      "span": [
+       8,
+       492,
+       931
+      ],
+      "sentence": "At the 12-month follow-up, the group and individual intervention arms were not more effective than UC in increasing PA (mean 131.1 steps, 95% CI -85.28 to 347.48 steps, and mean 210.22 steps, 95% CI -19.46 to 439.91 steps, respectively), but there were reductions in weight for the group and individual intervention arms compared with UC (mean -0.52 kg, 95% CI -0.90 to -0.13 kg, and mean -0.55 kg, 95% CI -0.95 to -0.14 kg, respectively)."
+     },
+     {
+      "id": "T09s11",
+      "text": "AKR1A1 wt Allele is compared with AKR1A1 wt Allele.",
+      "where": "abstract",
+      "span": [
+       8,
+       932,
+       1067
+      ],
+      "sentence": "The group intervention arm was not more effective than the individual intervention arm in improving outcomes at either follow-up point."
+     },
+     {
+      "id": "T09s12",
+      "text": "AKR1A1 wt Allele is not higher than AKR1A1 wt Allele.",
+      "where": "abstract",
+      "span": [
+       8,
+       932,
+       1067
+      ],
+      "sentence": "The group intervention arm was not more effective than the individual intervention arm in improving outcomes at either follow-up point."
+     },
+     {
+      "id": "T09s13",
+      "text": "Motivational Interviewing treats member.",
+      "where": "abstract",
+      "span": [
+       9,
+       0,
+       180
+      ],
+      "sentence": "Enhanced MI, in group or individual formats, targeted at members of the general population with high CVD risk is not effective in reducing weight or increasing PA compared with UC."
+     }
+    ]
+   },
+   {
+    "id": "T13",
+    "title": "Improving control of high blood pressure among middle-aged Turkish women of low socio-economic status through public health training.",
+    "journal": "Croatian medical journal",
+    "year": 2004,
+    "abstract": [
+     {
+      "label": "AIM",
+      "text": "To assess the effects of health training course aimed at educating middle-aged women of low socio-economic status in Turkey how to better control high blood pressure."
+     },
+     {
+      "label": "METHODS",
+      "text": "The intervention study included 400 randomly selected women aged (mean+/-standard deviation) 34.1+/-8.6 years. After their body size and blood pressure were measured, the women were randomly divided into two groups. The intervention group underwent public health training on high blood pressure control and obesity reduction, whereas control group had no training at all. After six months, blood pressure and body size of women in both groups were measured again."
+     },
+     {
+      "label": "RESULTS",
+      "text": "Overall, the initial high blood pressure and obesity ratio in the intervention and control group were 20.0% and 31.7%, respectively. After 6 months of the intervention program, the number of women within the optimal weight range significantly increased in the intervention group compared with control group (p=0.009). After the intervention program, the number of women with normal weight and normal blood pressure in the intervention group significantly increased (weight: 130 women before vs 150 after, p=0.001; blood pressure: 160 women before vs 173 after, p<0.001). After the intervention, the percentage of meals consisting of fried food in the intervention group was lower by 31.9%, and by 5.0% in the control group. After the intervention the percentage of boiled food increased by 15.7% in the intervention group, compared with no change in the control group. The consumption of food high in salt decreased by 5.5% in the control and by 72.2% in the intervention group. Similarly, the percentage of women who exercised almost doubled in the intervention group, whereas there was no change in the control group."
+     },
+     {
+      "label": "CONCLUSION",
+      "text": "The changes in the lifestyle significantly reduced hypertension and obesity ratio among women. The public health center can provide initial health training support as a part of the broader public health management program, aimed at helping people tackle health problems."
+     }
+    ],
+    "statements": [
+     {
+      "id": "T13s1",
+      "text": "Training affects Hypertensive disease.",
+      "where": "abstract",
+      "span": [
+       1,
+       216,
+       371
+      ],
+      "sentence": "The intervention group underwent public health training on high blood pressure control and obesity reduction, whereas control group had no training at all."
+     },
+     {
+      "id": "T13s2",
+      "text": "Intervention regimes treats Population Group.",
+      "where": "abstract",
+      "span": [
+       2,
+       571,
+       723
+      ],
+      "sentence": "After the intervention, the percentage of meals consisting of fried food in the intervention group was lower by 31.9%, and by 5.0% in the control group."
+     },
+     {
+      "id": "T13s3",
+      "text": "Intervention regimes does not treat Control Groups.",
+      "where": "abstract",
+      "span": [
+       2,
+       724,
+       868
+      ],
+      "sentence": "After the intervention the percentage of boiled food increased by 15.7% in the intervention group, compared with no change in the control group."
+     }
+    ]
+   },
+   {
+    "id": "T14",
+    "title": "Prepare randomized clinical trial: Acceptability, engagement, and lifestyle effects of a weight loss intervention beginning in pre-pregnancy.",
+    "journal": "Obesity science & practice",
+    "year": 2022,
+    "abstract": [
+     {
+      "label": "BACKGROUND",
+      "text": "Healthier lifestyles in early pregnancy are associated with lower rates of pregnancy complications, childhood adiposity, and maternal and child cardiovascular risks. However, it is not known whether lifestyle coaching initiated prior to pregnancy can affect behavior and attitudes during pregnancy."
+     },
+     {
+      "label": "METHODS",
+      "text": "Three hundred and twenty six women planning pregnancy within 2 years with BMI ≥27 kg/m2 were randomized to a behavioral weight loss intervention or to usual care. Analyses reported here examined the intervention's impact on mid-pregnancy diet quality and activity levels; program acceptability; and effects of pregnancy on intervention engagement."
+     },
+     {
+      "label": "RESULTS",
+      "text": "One hundred and sixty eight participants experienced pregnancy during the study (intervention: 91; usual care: 77). From randomization to mid-pregnancy, participants who received the intervention had larger increases in fruit intake than usual care participants (+0.67 vs. +0.06 cups; p = 0.02) and engaged in more vigorous-intensity activity (3.9 [5.5] vs. 1.2 [3.0] Met-hr/week p = 0.002) and sports/exercise (17.0 [14.1] vs. 11.0 [9.5] Met-hr/week; p = 0.03); the groups also differed in changes in sedentary time (-4.9 [15.0] vs. +0.5 [7.6] Met-hr/week; p = 0.02). Intervention satisfaction was high (>80%), and experiencing pregnancy during the intervention was associated with higher engagement."
+     },
+     {
+      "label": "CONCLUSION",
+      "text": "A coaching-based intervention beginning in pre-pregnancy successfully helped women attain healthier diet and exercise habits in mid-pregnancy."
+     },
+     {
+      "label": "CLINICAL TRIALS REGISTRATION",
+      "text": "Registered with ClinicalTrials.gov, NCT02346162, first registered on January 26, 2015, before date of initial participant enrollment (May 2015), https://clinicaltrials.gov/ct2/show/NCT02346162."
+     }
+    ],
+    "statements": [
+     {
+      "id": "T14s1",
+      "text": "Interventional procedure affects Pregnancy.",
+      "where": "abstract",
+      "span": [
+       1,
+       163,
+       347
+      ],
+      "sentence": "Analyses reported here examined the intervention's impact on mid-pregnancy diet quality and activity levels; program acceptability; and effects of pregnancy on intervention engagement."
+     }
+    ]
+   },
+   {
+    "id": "T15",
+    "title": "Exercise prescription improves exercise tolerance in young children with CHD: a randomised clinical trial.",
+    "journal": "Open heart",
+    "year": 2021,
+    "abstract": [
+     {
+      "label": "OBJECTIVE",
+      "text": "The main objective of this study was to ascertain if a structured intervention programme can improve the biophysical health of young children with congenital heart disease (CHD). The primary end point was an increase in measureable physical activity levels following the intervention."
+     },
+     {
+      "label": "METHODS",
+      "text": "Patients aged 5-10 years with CHD were identified and invited to participate. Participants completed a baseline biophysical assessment, including a formal exercise stress test and daily activity monitoring using an accelerometer. Following randomisation, the intervention group attended a 1 day education session and received an individual written exercise plan to be continued over the 4-month intervention period. The control group continued with their usual level of care. After 4 months, all participants were reassessed in the same manner as at baseline."
+     },
+     {
+      "label": "RESULTS",
+      "text": "One hundred and sixty-three participants (mean age 8.4 years) were recruited, 100 of whom were male (61.3%). At baseline, the majority of the children were active with good exercise tolerance. The cyanotic palliated subgroup participants, however, were found to have lower levels of daily activity and significantly limited peak exercise performance compared with the other subgroups. One hundred and fifty-two participants (93.2%) attended for reassessment. Following the intervention, there was a significant improvement in peak exercise capacity in the intervention group. There was also a trend towards increased daily activity levels."
+     },
+     {
+      "label": "CONCLUSION",
+      "text": "Overall physical activity levels are well preserved in the majority of young children with CHD. A structured intervention programme significantly increased peak exercise capacity and improved attitudes towards positive lifestyle changes."
+     }
+    ],
+    "statements": [
+     {
+      "id": "T15s1",
+      "text": "Exercise on prescription treats young child.",
+      "where": "title",
+      "span": null,
+      "sentence": "Exercise prescription improves exercise tolerance in young children with CHD: a randomised clinical trial."
+     },
+     {
+      "id": "T15s2",
+      "text": "Interventional procedure treats Intervention Group.",
+      "where": "abstract",
+      "span": [
+       2,
+       459,
+       575
+      ],
+      "sentence": "Following the intervention, there was a significant improvement in peak exercise capacity in the intervention group."
+     }
+    ]
+   },
+   {
+    "id": "T16",
+    "title": "Effect of intraoperative amino acids with or without glucose infusion on body temperature, insulin, and blood glucose levels in patients undergoing laparoscopic colectomy: a preliminary report.",
+    "journal": "Acta anaesthesiologica Taiwanica : official journal of the Taiwan Society of Anesthesiologists",
+    "year": 2014,
+    "abstract": [
+     {
+      "label": "OBJECTIVE",
+      "text": "Amino acid administration helps to prevent intraoperative hypothermia but may enhance thermogenesis when combined with glucose infusion. The aim of this study was to examine the effect of intraoperative amino acid administration, with or without glucose infusion, on temperature regulation during laparoscopic colectomy."
+     },
+     {
+      "label": "METHODS",
+      "text": "Twenty-one patients whose physical status was classified I or II by the American Society of Anesthesiologists, and who were undergoing elective laparoscopic colectomy were enrolled. The exclusion criteria were a history of diabetes and/or obesity, preoperative high levels of C-reactive protein, high blood glucose and/or body temperature after anesthesia induction, and surgical time >500 minutes. Each patient received an acetate ringer solution and was randomly assigned to one of three groups. Group A patients were given only amino acids. Group AG patients were given amino acids and glucose. Group C patients were given neither amino acids nor glucose. Tympanic membrane temperatures and blood glucose and insulin levels were measured intraoperatively."
+     },
+     {
+      "label": "RESULTS",
+      "text": "Intraoperative amino acid infusion significantly increased body temperature during surgery as compared with either Group AG or C. The blood glucose levels in Group AG were significantly higher than those in Groups A and C. However, there were no significant differences between Groups A and C. Two hours after anesthesia induction, serum insulin levels in Groups A and AG significantly increased compared with Group C. No significant differences in the postoperative complications or patient hospitalization lengths were detected between the groups."
+     },
+     {
+      "label": "CONCLUSION",
+      "text": "Intraoperative amino acid infusion without glucose administration maintains body temperature more effectively than combined amino acid and glucose infusion in patients undergoing laparoscopic colectomy, despite unaltered intraoperative insulin levels."
+     }
+    ],
+    "statements": [
+     {
+      "id": "T16s1",
+      "text": "Laparoscopic Colectomy treats Patients.",
+      "where": "title",
+      "span": null,
+      "sentence": "Effect of intraoperative amino acids with or without glucose infusion on body temperature, insulin, and blood glucose levels in patients undergoing laparoscopic colectomy: a preliminary report."
+     },
+     {
+      "id": "T16s2",
+      "text": "Laparoscopic Colectomy treats Anesthesiologist.",
+      "where": "abstract",
+      "span": [
+       1,
+       0,
+       181
+      ],
+      "sentence": "Twenty-one patients whose physical status was classified I or II by the American Society of Anesthesiologists, and who were undergoing elective laparoscopic colectomy were enrolled."
+     },
+     {
+      "id": "T16s3",
+      "text": "Laparoscopic Colectomy treats Patients.",
+      "where": "abstract",
+      "span": [
+       3,
+       0,
+       251
+      ],
+      "sentence": "Intraoperative amino acid infusion without glucose administration maintains body temperature more effectively than combined amino acid and glucose infusion in patients undergoing laparoscopic colectomy, despite unaltered intraoperative insulin levels."
+     },
+     {
+      "id": "T16s4",
+      "text": "Amino acid injection solution is compared with Amino Acids.",
+      "where": "abstract",
+      "span": [
+       3,
+       0,
+       251
+      ],
+      "sentence": "Intraoperative amino acid infusion without glucose administration maintains body temperature more effectively than combined amino acid and glucose infusion in patients undergoing laparoscopic colectomy, despite unaltered intraoperative insulin levels."
+     },
+     {
+      "id": "T16s5",
+      "text": "Amino acid injection solution is higher than Amino Acids.",
+      "where": "abstract",
+      "span": [
+       3,
+       0,
+       251
+      ],
+      "sentence": "Intraoperative amino acid infusion without glucose administration maintains body temperature more effectively than combined amino acid and glucose infusion in patients undergoing laparoscopic colectomy, despite unaltered intraoperative insulin levels."
+     },
+     {
+      "id": "T16s6",
+      "text": "Amino Acids treats Patients.",
+      "where": "abstract",
+      "span": [
+       3,
+       0,
+       251
+      ],
+      "sentence": "Intraoperative amino acid infusion without glucose administration maintains body temperature more effectively than combined amino acid and glucose infusion in patients undergoing laparoscopic colectomy, despite unaltered intraoperative insulin levels."
+     },
+     {
+      "id": "T16s7",
+      "text": "Glucose treats Patients.",
+      "where": "abstract",
+      "span": [
+       3,
+       0,
+       251
+      ],
+      "sentence": "Intraoperative amino acid infusion without glucose administration maintains body temperature more effectively than combined amino acid and glucose infusion in patients undergoing laparoscopic colectomy, despite unaltered intraoperative insulin levels."
+     }
+    ]
+   },
+   {
+    "id": "T17",
+    "title": "Topiramate treatment in bulimia nervosa patients: a randomized, double-blind, placebo-controlled trial.",
+    "journal": "The International journal of eating disorders",
+    "year": 2005,
+    "abstract": [
+     {
+      "label": "OBJECTIVE",
+      "text": "The aim of the current study was to test the influence of topiramate on behavior, body weight, and health-related quality of life (HRQOL) in bulimic patients."
+     },
+     {
+      "label": "METHOD",
+      "text": "Thirty patients with bulimia nervosa were treated with topiramate in a 10-week randomized, double-blind, placebo-controlled study. The subjects were randomly assigned to receive topiramate (topiramate group [TG]; n = 30) or a placebo (control group [CG]; n = 30). Primary outcome measures were changes in the frequency of binging/purging, in body weight, and on the SF-36 Health Survey (SF-36) scales."
+     },
+     {
+      "label": "RESULTS",
+      "text": "In comparison to the CG group (according to the intent-to-treat principle), significant changes in the frequency of binging/purging (a > 50% reduction: TG, n = 11 [36.7%]; CG, n = 1 [3.3%]; p < .001), body weight (difference in weight loss between the two groups: 3.8 kg, 95% confidence interval [CI] = -5.4 to -2.1; p < .001), and SF-36 (all ps < .001) could be seen. All patients tolerated topiramate well."
+     },
+     {
+      "label": "CONCLUSION",
+      "text": "Topiramate appears to safe and effective in influencing the frequency of binging/purging, body weight, and HRQOL in bulimic patients."
+     }
+    ],
+    "statements": [
+     {
+      "id": "T17s1",
+      "text": "Topiramate treats Bulimia.",
+      "where": "title",
+      "span": null,
+      "sentence": "Topiramate treatment in bulimia nervosa patients: a randomized, double-blind, placebo-controlled trial."
+     },
+     {
+      "id": "T17s2",
+      "text": "Topiramate treats Patients.",
+      "where": "title",
+      "span": null,
+      "sentence": "Topiramate treatment in bulimia nervosa patients: a randomized, double-blind, placebo-controlled trial."
+     },
+     {
+      "id": "T17s3",
+      "text": "Topiramate treats Bulimia.",
+      "where": "abstract",
+      "span": [
+       1,
+       0,
+       130
+      ],
+      "sentence": "Thirty patients with bulimia nervosa were treated with topiramate in a 10-week randomized, double-blind, placebo-controlled study."
+     },
+     {
+      "id": "T17s4",
+      "text": "Topiramate treats Patients.",
+      "where": "abstract",
+      "span": [
+       1,
+       0,
+       130
+      ],
+      "sentence": "Thirty patients with bulimia nervosa were treated with topiramate in a 10-week randomized, double-blind, placebo-controlled study."
+     }
+    ]
+   },
+   {
+    "id": "T20",
+    "title": "Randomized clinical trial of hand-assisted laparoscopic versus open Roux-en-Y gastric bypass for the treatment of morbid obesity.",
+    "journal": "The British journal of surgery",
+    "year": 2004,
+    "abstract": [
+     {
+      "label": "BACKGROUND",
+      "text": ": Roux-en-Y gastric bypass (RYGBP) has increased in popularity since the introduction of the laparoscopic procedure, but this approach requires extensive surgical skill and the learning curve is steep. The present study examined the suitability of hand-assisted laparoscopy for RYGBP."
+     },
+     {
+      "label": "METHODS",
+      "text": "In a prospective trial, 50 patients (median age 38 years, body mass index 45 kg/m(2)) were randomized to either hand-assisted (n = 25) or open (n = 25) RYGBP. The hand-assisted device was introduced through a right subcostal incision. Laparoscopic staplers were also used in the open group, allowing a short upper midline incision. The gastrojejunostomy was made by means of a circular stapler and the Roux limb placed behind the colon and excluded stomach."
+     },
+     {
+      "label": "RESULTS",
+      "text": "The postoperative outcome, with respect to morphine consumption, complications, hospital stay (6 days) and weight loss, was similar in the two groups. The operating time was significantly longer in the hand-assisted group (150 versus 85 min; P < 0.001) but there was no conversion to open operation. One patient in the hand-assisted group was reoperated owing to leakage and one patient developed an incisional hernia after open RYGBP."
+     },
+     {
+      "label": "CONCLUSION",
+      "text": "The hand-assisted technique was feasible and allowed good working conditions in all patients. However, the postoperative outcome was excellent in both groups and there was no advantage to the hand-assisted technique."
+     }
+    ],
+    "statements": [
+     {
+      "id": "T20s1",
+      "text": "Roux-en-Y Gastric Bypass treats Obesity, Morbid.",
+      "where": "title",
+      "span": null,
+      "sentence": "Randomized clinical trial of hand-assisted laparoscopic versus open Roux-en-Y gastric bypass for the treatment of morbid obesity."
+     },
+     {
+      "id": "T20s2",
+      "text": "Hand endodontic technique treats Patients.",
+      "where": "abstract",
+      "span": [
+       3,
+       0,
+       93
+      ],
+      "sentence": "The hand-assisted technique was feasible and allowed good working conditions in all patients."
+     }
+    ]
+   },
+   {
+    "id": "T22",
+    "title": "Effects of amlodipine-atorvastatin combination on inflammation markers and insulin sensitivity in normocholesterolemic obese hypertensive patients.",
+    "journal": "European journal of clinical pharmacology",
+    "year": 2006,
+    "abstract": [
+     {
+      "label": "OBJECTIVE",
+      "text": "The objective of this study was to assess the effect of amlodipine-atorvastatin combination on plasma interleukin-6 (IL-6), tumor necrosis factor-alpha (TNF-alpha) and insulin sensitivity in normocholesterolemic obese hypertensive patients."
+     },
+     {
+      "label": "MATERIALS AND METHODS",
+      "text": "After a 4-week placebo wash-out period, 50 normocholesterolemic [total cholesterol (TC) <5.2 mmol/L], obese (BMI >/=30 kg/m(2)) hypertensive patients (DBP >90 and <105 mm Hg and SBP >140 and <180 mm Hg) were randomly treated with amlodipine (10 mg) or with amlodipine (10 mg) plus atorvastatin (20 mg) according to a cross-over design; each treatment had a 12-week duration. At the end of the placebo and of each treatment period, blood pressure (BP), TNF-alpha, IL-6, insulin resistance (IR) by homeostasis model assessment of IR index (HOMA-IR) and TC were evaluated."
+     },
+     {
+      "label": "RESULTS",
+      "text": "Amlodipine monotherapy decreased both SBP (-17.1 mm Hg, p=0.008 vs. placebo) and DBP (-14.3 mm Hg, p=0.008) as well as TNF-alpha (from 3.66+/-1.6 to 3.09+/-1.1 pg/ml, p=0.045) and HOMA-IR (from 4.58+/-0.7 to 3.88+/-0.6, p=0.007). The amlodipine-atorvastatin combination produced a decrease in SBP (-22.5 mm Hg, p=0.0007 vs. placebo, p=0.039 vs. amlodipine), DBP (-17.7 mm Hg, p=0.0007 vs. placebo; p=0.04 vs. amlodipine), TNF-alpha (2.59+/-0.9 pg/mL, p=0.007 vs. placebo and p=0.038 vs. amlodipine) and HOMA-IR (2.86+/-0.4, p=0.0008 vs. placebo and p=0.007 vs. amlodipine). The combination reduced IL-6 (from 7.93+/-1.9 to 5.59+/-1.2 pg/mL, p=0.008 vs. placebo and p=0.007 vs. amlodipine) and TC (from 4.3+/-0.5 to 3.6+/-0.4 mmol/L, p=0.008 vs. placebo and vs. amlodipine). HOMA-IR changes significantly correlated with TNF-alpha changes (r=0.38, p<0.05) during combination but not during amlodipine monotherapy. In normocholesterolemic, obese hypertensive patients, the amlodipine-atorvastatin combination decreased inflammatory markers and IR more than amlodipine monotherapy and produced a greater SBP and DBP reduction."
+     }
+    ],
+    "statements": [
+     {
+      "id": "T22s1",
+      "text": "Amlodipine+atorvastatin predisposes to Inflammation.",
+      "where": "title",
+      "span": null,
+      "sentence": "Effects of amlodipine-atorvastatin combination on inflammation markers and insulin sensitivity in normocholesterolemic obese hypertensive patients."
+     },
+     {
+      "id": "T22s2",
+      "text": "Amlodipine treats Hypertensive.",
+      "where": "abstract",
+      "span": [
+       1,
+       0,
+       374
+      ],
+      "sentence": "After a 4-week placebo wash-out period, 50 normocholesterolemic [total cholesterol (TC) <5.2 mmol/L], obese (BMI >/=30 kg/m(2)) hypertensive patients (DBP >90 and <105 mm Hg and SBP >140 and <180 mm Hg) were randomly treated with amlodipine (10 mg) or with amlodipine (10 mg) plus atorvastatin (20 mg) according to a cross-over design; each treatment had a 12-week duration."
+     },
+     {
+      "id": "T22s3",
+      "text": "Amlodipine treats Patients.",
+      "where": "abstract",
+      "span": [
+       1,
+       0,
+       374
+      ],
+      "sentence": "After a 4-week placebo wash-out period, 50 normocholesterolemic [total cholesterol (TC) <5.2 mmol/L], obese (BMI >/=30 kg/m(2)) hypertensive patients (DBP >90 and <105 mm Hg and SBP >140 and <180 mm Hg) were randomly treated with amlodipine (10 mg) or with amlodipine (10 mg) plus atorvastatin (20 mg) according to a cross-over design; each treatment had a 12-week duration."
+     },
+     {
+      "id": "T22s4",
+      "text": "Insulin Resistance causes Systolic Pressure.",
+      "where": "abstract",
+      "span": [
+       2,
+       913,
+       1123
+      ],
+      "sentence": "In normocholesterolemic, obese hypertensive patients, the amlodipine-atorvastatin combination decreased inflammatory markers and IR more than amlodipine monotherapy and produced a greater SBP and DBP reduction."
+     },
+     {
+      "id": "T22s5",
+      "text": "Amlodipine+atorvastatin inhibits GC gene|GC.",
+      "where": "abstract",
+      "span": [
+       2,
+       913,
+       1123
+      ],
+      "sentence": "In normocholesterolemic, obese hypertensive patients, the amlodipine-atorvastatin combination decreased inflammatory markers and IR more than amlodipine monotherapy and produced a greater SBP and DBP reduction."
+     }
+    ]
+   },
+   {
+    "id": "T23",
+    "title": "The effect of Roux limb lengths on outcome after Roux-en-Y gastric bypass: a prospective, randomized clinical trial.",
+    "journal": "Obesity surgery",
+    "year": 2002,
+    "abstract": [
+     {
+      "label": "BACKGROUND",
+      "text": "The effect of limb-length on weight loss after Roux-en-Y gastric bypass (RYGBP) is controversial; hence, the optimal limb-lengths have not been determined. This study evaluated the effect of different limb-lengths on weight loss after RYGBP."
+     },
+     {
+      "label": "METHODS",
+      "text": "The study was a prospective randomized clinical trial in which patients undergoing RYGBP (110 F, 24 M; mean age 39.7) were randomized as follows: BMI < or = 50 (N = 69): A-75 cm (N = 35) vs B-150 cm alimentary limb (N = 34) and C-150 cm (N = 33) vs D-250 cm alimentary limb (N = 31). All other aspects of the operation were identical. Patients were followed at 2 weeks, 6 weeks, 6 months, 12 months, 18 months, 24 months and yearly thereafter."
+     },
+     {
+      "label": "RESULTS",
+      "text": "There were no significant differences in age, sex, race, initial BMI, or excess weight between patients assigned to groups A vs B and C vs D. Postoperative nutritional intake was also similar between groups. Within each weight category, there were no differences in mean weight loss, change in BMI, and % excess weight lost (EWL) over time. When the number of patients achieving 50% EWL was evaluated, there was no difference between groups with a BMI < or = 50 kg/m2; however, among patients with a BMI > 50 kg/m2, a significantly greater percentage of those having a 250-cm limb achieved > 50% EWL at 18 months postoperatively. This difference was lost at 24 and 36 months, possibly due to the small sample size."
+     },
+     {
+      "label": "CONCLUSIONS",
+      "text": "In patients with a BMI < or = 50, there appears to be no advantage to longer limb-lengths. In patients with BMI > 50, however, these data suggest that longer alimentary limb-lengths may be associated with a higher percent of patients achieving > 50% EWL. Longer follow-up studies of the effects of limb-length on success of RYGBP are indicated."
+     }
+    ],
+    "statements": [
+     {
+      "id": "T23s1",
+      "text": "Roux-en-Y Gastric Bypass treats Patients.",
+      "where": "abstract",
+      "span": [
+       1,
+       0,
+       283
+      ],
+      "sentence": "The study was a prospective randomized clinical trial in which patients undergoing RYGBP (110 F, 24 M; mean age 39.7) were randomized as follows: BMI < or = 50 (N = 69): A-75 cm (N = 35) vs B-150 cm alimentary limb (N = 34) and C-150 cm (N = 33) vs D-250 cm alimentary limb (N = 31)."
+     }
+    ]
+   },
+   {
+    "id": "T24",
+    "title": "Obesity and the Odds of Weight Gain following Androgen Deprivation Therapy for Prostate Cancer.",
+    "journal": "Prostate cancer",
+    "year": 2014,
+    "abstract": [
+     {
+      "label": "",
+      "text": "Background. Increasing body mass index (BMI) is associated with increased risk of mortality; however, quantifying weight gain in men undergoing androgen deprivation therapy (ADT) for prostate cancer (PC) remains unexplored. Methods. Between 1995 and 2001, 206 men were enrolled in a randomized trial evaluating the survival difference of adding 6 months of ADT to radiation therapy (RT). BMI measurements were available in 171 men comprising the study cohort. The primary endpoint was weight gain of ≥10 lbs by 6-month followup. Logistic regression analysis was performed to assess whether baseline BMI or treatment received was associated with this endpoint adjusting for known prognostic factors. Results. By the 6-month followup, 12 men gained ≥10 lbs, of which 10 (83%) received RT + ADT and, of these, 7 (70%) were obese at randomization. Men treated with RT as compared to RT + ADT were less likely to gain ≥10 lbs (adjusted odds ratio (AOR): 0.18 [95% CI: 0.04-0.89]; P = 0.04), whereas this risk increased with increasing BMI (AOR: 1.15 [95% CI: 1.01-1.31]; P = 0.04). Conclusions. Consideration should be given to avoid ADT in obese men with low- or favorable-intermediate risk PC where improved cancer control has not been observed, but shortened life expectancy from weight gain is expected."
+     }
+    ],
+    "statements": [
+     {
+      "id": "T24s1",
+      "text": "Androgen therapy treats Malignant neoplasm of prostate.",
+      "where": "title",
+      "span": null,
+      "sentence": "Obesity and the Odds of Weight Gain following Androgen Deprivation Therapy for Prostate Cancer."
+     },
+     {
+      "id": "T24s2",
+      "text": "Androgen therapy treats Weight Gain.",
+      "where": "abstract",
+      "span": [
+       0,
+       12,
+       223
+      ],
+      "sentence": "Increasing body mass index (BMI) is associated with increased risk of mortality; however, quantifying weight gain in men undergoing androgen deprivation therapy (ADT) for prostate cancer (PC) remains unexplored."
+     },
+     {
+      "id": "T24s3",
+      "text": "Androgen therapy treats Male population group.",
+      "where": "abstract",
+      "span": [
+       0,
+       12,
+       223
+      ],
+      "sentence": "Increasing body mass index (BMI) is associated with increased risk of mortality; however, quantifying weight gain in men undergoing androgen deprivation therapy (ADT) for prostate cancer (PC) remains unexplored."
+     },
+     {
+      "id": "T24s4",
+      "text": "Radiation therapy treats Male population group.",
+      "where": "abstract",
+      "span": [
+       0,
+       844,
+       1076
+      ],
+      "sentence": "Men treated with RT as compared to RT + ADT were less likely to gain ≥10 lbs (adjusted odds ratio (AOR): 0.18 [95% CI: 0.04-0.89]; P = 0.04), whereas this risk increased with increasing BMI (AOR: 1.15 [95% CI: 1.01-1.31]; P = 0.04)."
+     },
+     {
+      "id": "T24s5",
+      "text": "Androgen therapy treats Obesity.",
+      "where": "abstract",
+      "span": [
+       0,
+       1090,
+       1302
+      ],
+      "sentence": "Consideration should be given to avoid ADT in obese men with low- or favorable-intermediate risk PC where improved cancer control has not been observed, but shortened life expectancy from weight gain is expected."
+     },
+     {
+      "id": "T24s6",
+      "text": "Androgen therapy treats Male population group.",
+      "where": "abstract",
+      "span": [
+       0,
+       1090,
+       1302
+      ],
+      "sentence": "Consideration should be given to avoid ADT in obese men with low- or favorable-intermediate risk PC where improved cancer control has not been observed, but shortened life expectancy from weight gain is expected."
+     }
+    ]
+   },
+   {
+    "id": "T25",
+    "title": "Four-week supplementation with a natural dietary compound produces favorable changes in body composition.",
+    "journal": "Advances in therapy",
+    "year": 1998,
+    "abstract": [
+     {
+      "label": "",
+      "text": "The purpose of this study was to determine whether a natural dietary supplement produced favorable changes in body composition during a 4-week diet- and-exercise program. The active compound contains a patented combination of chromium picolinate, inulin, capsicum, L-phenylalanine, and other lipotropic nutrients. A double-blind, weight-loss intervention design was used. Participants were randomly assigned to either a diet/exercise/supplement group (n = 56) or a diet/exercise/placebo group (n = 67). Caloric intake was reduced to 1500 kcal/d and participants walked for 45 minutes, 5 days a week, to attain between 60% and 80% of predicted maximal heart rate. Analysis of covariance (ANCOVA) showed significant differences (P < .05) between groups in percent body fat, fat mass, and fat-free mass; no significant differences were found (P > .05) in body weight, body mass index, or energy intake. Independent t tests showed no significant differences (P > .05) in diet composition between groups. Results indicate that the addition of a natural dietary supplement during a 4-week diet-and-exercise weight-loss program accelerates the rate of body fat loss and helps maintain fat-free mass (lean tissue), thereby producing favorable changes in body composition."
+     }
+    ],
+    "statements": [
+     {
+      "id": "T25s1",
+      "text": "Supplementation treats Body Composition.",
+      "where": "title",
+      "span": null,
+      "sentence": "Four-week supplementation with a natural dietary compound produces favorable changes in body composition."
+     }
+    ]
+   },
+   {
+    "id": "T27",
+    "title": "A comparison of the efficacy of ketotifen (HC 20-511) with sodium cromoglycate (SCG) in skin test positive asthma.",
+    "journal": "British journal of clinical pharmacology",
+    "year": 1980,
+    "abstract": [
+     {
+      "label": "",
+      "text": "1 Ketotifen (HC 20-511 Sandoz) 1 mg twice daily for 12 weeks was found to be equivalent to sodium cromoglycate (SCG) 20 mg four times daily for 12 weeks in 35 skin test positive asthmatic patients in a randomised double-blind cross-over study. 2 No statistically significant difference between the two drugs in mean values for daily peak flow rates, diary card scores and spirometry at monthly visits was demonstrated. 3 Treatment failures as judged by severe asthma requiring withdrawal from the trial or addition of short courses of prednisone occurred in three patients on each drug. 4 Sedation was noted by 10 patients onHC 20-511 and 5 on SCG. 5 Weight loss was noted in those patients on SCG, but not those on HC 20-511."
+     }
+    ],
+    "statements": [
+     {
+      "id": "T27s1",
+      "text": "Cromoglycate treats Asthma.",
+      "where": "title",
+      "span": null,
+      "sentence": "A comparison of the efficacy of ketotifen (HC 20-511) with sodium cromoglycate (SCG) in skin test positive asthma."
+     },
+     {
+      "id": "T27s2",
+      "text": "Ketotifen treats Asthma.",
+      "where": "title",
+      "span": null,
+      "sentence": "A comparison of the efficacy of ketotifen (HC 20-511) with sodium cromoglycate (SCG) in skin test positive asthma."
+     },
+     {
+      "id": "T27s3",
+      "text": "Ketotifen is compared with Cromoglycate.",
+      "where": "title",
+      "span": null,
+      "sentence": "A comparison of the efficacy of ketotifen (HC 20-511) with sodium cromoglycate (SCG) in skin test positive asthma."
+     },
+     {
+      "id": "T27s4",
+      "text": "Cromoglycate treats Asthma.",
+      "where": "abstract",
+      "span": [
+       0,
+       0,
+       243
+      ],
+      "sentence": "1 Ketotifen (HC 20-511 Sandoz) 1 mg twice daily for 12 weeks was found to be equivalent to sodium cromoglycate (SCG) 20 mg four times daily for 12 weeks in 35 skin test positive asthmatic patients in a randomised double-blind cross-over study."
+     },
+     {
+      "id": "T27s5",
+      "text": "Cromoglycate treats Patients.",
+      "where": "abstract",
+      "span": [
+       0,
+       0,
+       243
+      ],
+      "sentence": "1 Ketotifen (HC 20-511 Sandoz) 1 mg twice daily for 12 weeks was found to be equivalent to sodium cromoglycate (SCG) 20 mg four times daily for 12 weeks in 35 skin test positive asthmatic patients in a randomised double-blind cross-over study."
+     }
+    ]
+   },
+   {
+    "id": "T29",
+    "title": "Nutrition, Behavior Change and Physical Activity Outcomes From the PEARS RCT-An mHealth-Supported, Lifestyle Intervention Among Pregnant Women With Overweight and Obesity.",
+    "journal": "Frontiers in endocrinology",
+    "year": 2020,
+    "abstract": [
+     {
+      "label": "",
+      "text": "Background: Diet quality and physical activity positively impact pregnancy outcomes among women with obesity, but successful lifestyle interventions require intense clinician time. We aimed to investigate the impact of a behavioral-lifestyle intervention (PEARS) supported by a smartphone app among pregnant women with overweight and obesity, on nutrient intake, behavioral stage-of-change and physical activity. Methods: Pregnant women (BMI 25-39.9 kg/m2, measured, n = 565) were randomized at 15.6 weeks' gestation to the intervention (n = 278), or a control group (n = 287) (ISRCTN29316280). The intervention was grounded in behavior-change theory. Participants received nutrition (low glycaemic index and healthy eating) and exercise advice, a smartphone app and fortnightly emails. The control group received usual care which does not include dietary advice. At baseline and 28 weeks' gestation, dietary data were obtained through 3-day food diaries (n = 290 matched), and stage-of-change and physical activity data were self-reported. App usage data were collected. Results: There were no differences between the groups at baseline. Compared with the control group, the intervention group had improved dietary intakes post-intervention with; lower glycaemic index (MD -1.75); free sugars (%TE) (MD -0.98); fat (%TE) (MD -1.80); and sodium (mg) (MD -183.49). Physical activity (MET-minutes/week) was higher in the intervention group post-intervention (MD 141.4; 95% CI 62.9, 219.9). The proportion of participants at \"maintenance\" stage-of-change for physical activity was higher in the intervention group (56.3 vs. 31.2%). App use was associated with lower glycaemic index and less energy from free sugars, but not with physical activity. Conclusion: A behavioral-lifestyle intervention in pregnancy supported by a smartphone app improved dietary intakes, physical activity, and motivation to engage in exercise."
+     }
+    ],
+    "statements": [
+     {
+      "id": "T29s1",
+      "text": "Sugars is compared with sodium.",
+      "where": "abstract",
+      "span": [
+       0,
+       1139,
+       1363
+      ],
+      "sentence": "Compared with the control group, the intervention group had improved dietary intakes post-intervention with; lower glycaemic index (MD -1.75); free sugars (%TE) (MD -0.98); fat (%TE) (MD -1.80); and sodium (mg) (MD -183.49)."
+     },
+     {
+      "id": "T29s2",
+      "text": "Exercise treats Intervention Group.",
+      "where": "abstract",
+      "span": [
+       0,
+       1364,
+       1487
+      ],
+      "sentence": "Physical activity (MET-minutes/week) was higher in the intervention group post-intervention (MD 141.4; 95% CI 62.9, 219.9)."
+     },
+     {
+      "id": "T29s3",
+      "text": "Exercise treats Intervention Group.",
+      "where": "abstract",
+      "span": [
+       0,
+       1488,
+       1628
+      ],
+      "sentence": "The proportion of participants at \"maintenance\" stage-of-change for physical activity was higher in the intervention group (56.3 vs. 31.2%)."
+     },
+     {
+      "id": "T29s4",
+      "text": "Pregnancy affects Dietary intake.",
+      "where": "abstract",
+      "span": [
+       0,
+       1745,
+       1918
+      ],
+      "sentence": "Conclusion: A behavioral-lifestyle intervention in pregnancy supported by a smartphone app improved dietary intakes, physical activity, and motivation to engage in exercise."
+     }
+    ]
+   },
+   {
+    "id": "T30",
+    "title": "Bilary lipid metabolism in obesity. Effects of bile acid feeding before and during weight reduction.",
+    "journal": "Gastroenterology",
+    "year": 1979,
+    "abstract": [
+     {
+      "label": "",
+      "text": "Obese subjects are prone to supersaturated bile, which is maintained or increased during weight loss. In this report, two related studies were carried out on obese subjects to investigate effects of bile acid feeding on biliary lipid metabolism before and during weight reduction. In one study, chenodeoxycholic acid (CDCA), 750 mg/day, was given to 12 obese subjects during weight maintenance (1st mo) and during weight reduction (2nd mo). In the second study, effects of two bile acid preparations, CDCA and Bilron (containing mostly cholic acid and deoxycholic acid), randomly administered, were compared in another 12 obese subjects undergoing weight reduction. The results show that obese subjects had large pools of bile acids during weight maintenance which decreased on caloric restriction (1,000 kcal/day). CDCA increased pool size only modestly during weight maintenance, from 3,536 +/- 1,267 (SD) mg to 4,735 +/- 1,434 mg. Both CDCA and Bilron markedly reexpanded the contracted pool of bile acids in obese subjects on weight reduction. However, significantly reduced saturation of bile occurred only in those on CDCA and weight reductions, whereas supersaturation was unaltered when weight was maintained constant in these patients, or when Bilron was given. No significant side effects were noted during bile acid feeding for any of the subjects. Thus, CDCA given to obese subjects on weight reduction will reduce bile saturation and could protect against gallstones."
+     }
+    ],
+    "statements": [
+     {
+      "id": "T30s1",
+      "text": "Chenodeoxycholic Acid disrupts saturation.",
+      "where": "abstract",
+      "span": [
+       0,
+       1360,
+       1480
+      ],
+      "sentence": "Thus, CDCA given to obese subjects on weight reduction will reduce bile saturation and could protect against gallstones."
+     }
+    ]
+   },
+   {
+    "id": "T33",
+    "title": "Effects of diet and exercise in men and postmenopausal women with low levels of HDL cholesterol and high levels of LDL cholesterol.",
+    "journal": "The New England journal of medicine",
+    "year": 1998,
+    "abstract": [
+     {
+      "label": "BACKGROUND",
+      "text": "Guidelines established by the National Cholesterol Education Program (NCEP) promote exercise and weight loss for the treatment of abnormal lipoprotein levels. Little is known, however, about the effects of exercise or the NCEP diet, which is moderately low in fat and cholesterol, in persons with lipoprotein levels that place them at high risk for coronary heart disease."
+     },
+     {
+      "label": "METHODS",
+      "text": "We studied plasma lipoprotein levels in 180 postmenopausal women, 45 through 64 years of age, and 197 men, 30 through 64 years of age, who had low high-density lipoprotein (HDL) cholesterol levels (< or =59 mg per deciliter in women and < or =44 mg per deciliter in men) and moderately elevated levels of low-density lipoprotein (LDL) cholesterol (>125 mg per deciliter but <210 mg per deciliter in women and >125 mg per deciliter but <190 mg per deciliter in men). The subjects were randomly assigned to aerobic exercise, the NCEP Step 2 diet, or diet plus exercise, or to a control group, which received no intervention."
+     },
+     {
+      "label": "RESULTS",
+      "text": "Dietary intake of fat and cholesterol decreased during the one-year study (P<0.001), as did body weight, in women and men in either the diet group or the diet-plus-exercise group, as compared with the controls (P<0.001) and the exercise group (P<0.05), in which dietary intake and body weight were unchanged. Changes in HDL cholesterol and triglyceride levels and the ratio of total to HDL cholesterol did not differ significantly among the treatment groups, for subjects of either sex. The serum level of LDL cholesterol was significantly reduced among women (a decrease of 14.5+/-22.2 mg per deciliter) and men (a decrease of 20.0+/-17.3 mg per deciliter) in the diet-plus-exercise group, as compared with the control group (women had a decrease of 2.5+/-16.6 mg per deciliter, P<0.05; men had a decrease of 4.6+/-21.1 mg per deciliter, P<0.001). The reduction in LDL cholesterol in men in the diet-plus-exercise group was also significant as compared with that among the men in the exercise group (3.6+/-18.8 mg per deciliter, P<0.001). In contrast, changes in LDL cholesterol levels were not significant among the women (a decrease of 7.3+/-18.9 mg per deciliter) or the men (10.8+/-18.8 mg per deciliter) in the diet group, as compared with the controls."
+     },
+     {
+      "label": "CONCLUSIONS",
+      "text": "The NCEP Step 2 diet failed to lower LDL cholesterol levels in men or women with high-risk lipoprotein levels who did not engage in aerobic exercise. This finding highlights the importance of physical activity in the treatment of elevated LDL cholesterol levels."
+     }
+    ],
+    "statements": [
+     {
+      "id": "T33s1",
+      "text": "Exercise treats Male population group.",
+      "where": "title",
+      "span": null,
+      "sentence": "Effects of diet and exercise in men and postmenopausal women with low levels of HDL cholesterol and high levels of LDL cholesterol."
+     },
+     {
+      "id": "T33s2",
+      "text": "Exercise treats Woman.",
+      "where": "title",
+      "span": null,
+      "sentence": "Effects of diet and exercise in men and postmenopausal women with low levels of HDL cholesterol and high levels of LDL cholesterol."
+     },
+     {
+      "id": "T33s3",
+      "text": "Exercise treats Persons.",
+      "where": "abstract",
+      "span": [
+       0,
+       159,
+       372
+      ],
+      "sentence": "Little is known, however, about the effects of exercise or the NCEP diet, which is moderately low in fat and cholesterol, in persons with lipoprotein levels that place them at high risk for coronary heart disease."
+     },
+     {
+      "id": "T33s4",
+      "text": "Physical activity treats hypercholesterolemia.",
+      "where": "abstract",
+      "span": [
+       3,
+       150,
+       262
+      ],
+      "sentence": "This finding highlights the importance of physical activity in the treatment of elevated LDL cholesterol levels."
+     }
+    ]
+   },
+   {
+    "id": "T34",
+    "title": "The improved health utility of once-weekly subcutaneous semaglutide 2.4 mg compared with placebo in the STEP 1-4 obesity trials.",
+    "journal": "Diabetes, obesity & metabolism",
+    "year": 2023,
+    "abstract": [
+     {
+      "label": "AIM",
+      "text": "To assess health utility values in the Semaglutide Treatment Effect in People with obesity (STEP) 1-4 trials."
+     },
+     {
+      "label": "MATERIALS AND METHODS",
+      "text": "The STEP 1-4 phase 3a, 68-week, double-blind randomized controlled trials assessed the efficacy and safety of semaglutide 2.4 mg versus placebo in individuals with a body mass index (BMI) of 30 kg/m2 or higher or a BMI of 27 kg/m2 or higher and at least one comorbidity (STEP 1, 3 and 4), or a BMI of 27 kg/m2 or higher and type 2 diabetes (STEP 2). Patients received lifestyle intervention plus intensive behavioural therapy in STEP 3. Health-related quality of life was assessed using the Short Form 36-item Health Survey version 2 (SF-36v2) at baseline and week 68. Scores were converted into Short Form Six-Dimension version 2 (SF-6Dv2) utility scores or mapped onto the European Quality of Life Five-Dimension Three-Level (EQ-5D-3L) utility index using UK health utility weights."
+     },
+     {
+      "label": "RESULTS",
+      "text": "At week 68, semaglutide 2.4 mg was associated with minor health utility score improvements from baseline (all trials), while scores for placebo typically decreased. SF-6Dv2 treatment differences by week 68 for semaglutide 2.4 mg versus placebo were significant in STEP 1 and 4 (P ≤ .001), but not STEP 2 or 3. EQ-5D-3L treatment differences by week 68 for semaglutide 2.4 mg versus placebo were significant in STEP 1, 2 and 4 (P < .001 for all), but not STEP 3."
+     },
+     {
+      "label": "CONCLUSIONS",
+      "text": "Semaglutide 2.4 mg was associated with improvement in health utility scores compared with placebo, reaching statistical significance in STEP 1, 2 and 4."
+     }
+    ],
+    "statements": [
+     {
+      "id": "T34s1",
+      "text": "Placebos treats Finding of body mass index.",
+      "where": "abstract",
+      "span": [
+       1,
+       0,
+       349
+      ],
+      "sentence": "The STEP 1-4 phase 3a, 68-week, double-blind randomized controlled trials assessed the efficacy and safety of semaglutide 2.4 mg versus placebo in individuals with a body mass index (BMI) of 30 kg/m2 or higher or a BMI of 27 kg/m2 or higher and at least one comorbidity (STEP 1, 3 and 4), or a BMI of 27 kg/m2 or higher and type 2 diabetes (STEP 2)."
+     },
+     {
+      "id": "T34s2",
+      "text": "Placebos treats Persons.",
+      "where": "abstract",
+      "span": [
+       1,
+       0,
+       349
+      ],
+      "sentence": "The STEP 1-4 phase 3a, 68-week, double-blind randomized controlled trials assessed the efficacy and safety of semaglutide 2.4 mg versus placebo in individuals with a body mass index (BMI) of 30 kg/m2 or higher or a BMI of 27 kg/m2 or higher and at least one comorbidity (STEP 1, 3 and 4), or a BMI of 27 kg/m2 or higher and type 2 diabetes (STEP 2)."
+     },
+     {
+      "id": "T34s3",
+      "text": "Placebos treats Person 1.",
+      "where": "abstract",
+      "span": [
+       1,
+       0,
+       349
+      ],
+      "sentence": "The STEP 1-4 phase 3a, 68-week, double-blind randomized controlled trials assessed the efficacy and safety of semaglutide 2.4 mg versus placebo in individuals with a body mass index (BMI) of 30 kg/m2 or higher or a BMI of 27 kg/m2 or higher and at least one comorbidity (STEP 1, 3 and 4), or a BMI of 27 kg/m2 or higher and type 2 diabetes (STEP 2)."
+     },
+     {
+      "id": "T34s4",
+      "text": "Behavior Therapy treats Person 3.",
+      "where": "abstract",
+      "span": [
+       1,
+       350,
+       436
+      ],
+      "sentence": "Patients received lifestyle intervention plus intensive behavioural therapy in STEP 3."
+     },
+     {
+      "id": "T34s5",
+      "text": "Semaglutide is compared with Placebos.",
+      "where": "abstract",
+      "span": [
+       2,
+       165,
+       309
+      ],
+      "sentence": "SF-6Dv2 treatment differences by week 68 for semaglutide 2.4 mg versus placebo were significant in STEP 1 and 4 (P ≤ .001), but not STEP 2 or 3."
+     },
+     {
+      "id": "T34s6",
+      "text": "Placebos treats Person 1.",
+      "where": "abstract",
+      "span": [
+       2,
+       165,
+       309
+      ],
+      "sentence": "SF-6Dv2 treatment differences by week 68 for semaglutide 2.4 mg versus placebo were significant in STEP 1 and 4 (P ≤ .001), but not STEP 2 or 3."
+     },
+     {
+      "id": "T34s7",
+      "text": "Semaglutide treats Person 1.",
+      "where": "abstract",
+      "span": [
+       2,
+       165,
+       309
+      ],
+      "sentence": "SF-6Dv2 treatment differences by week 68 for semaglutide 2.4 mg versus placebo were significant in STEP 1 and 4 (P ≤ .001), but not STEP 2 or 3."
+     },
+     {
+      "id": "T34s8",
+      "text": "Semaglutide is compared with Placebos.",
+      "where": "abstract",
+      "span": [
+       2,
+       310,
+       461
+      ],
+      "sentence": "EQ-5D-3L treatment differences by week 68 for semaglutide 2.4 mg versus placebo were significant in STEP 1, 2 and 4 (P < .001 for all), but not STEP 3."
+     },
+     {
+      "id": "T34s9",
+      "text": "Placebos treats Person 1.",
+      "where": "abstract",
+      "span": [
+       2,
+       310,
+       461
+      ],
+      "sentence": "EQ-5D-3L treatment differences by week 68 for semaglutide 2.4 mg versus placebo were significant in STEP 1, 2 and 4 (P < .001 for all), but not STEP 3."
+     },
+     {
+      "id": "T34s10",
+      "text": "Semaglutide treats Person 1.",
+      "where": "abstract",
+      "span": [
+       2,
+       310,
+       461
+      ],
+      "sentence": "EQ-5D-3L treatment differences by week 68 for semaglutide 2.4 mg versus placebo were significant in STEP 1, 2 and 4 (P < .001 for all), but not STEP 3."
+     },
+     {
+      "id": "T34s11",
+      "text": "Placebos treats Person 1.",
+      "where": "abstract",
+      "span": [
+       3,
+       0,
+       152
+      ],
+      "sentence": "Semaglutide 2.4 mg was associated with improvement in health utility scores compared with placebo, reaching statistical significance in STEP 1, 2 and 4."
+     }
+    ]
+   },
+   {
+    "id": "T35",
+    "title": "[Effectiveness of a recruitment manoeuvre and positive end-expiratory pressure on respiratory mechanics during laparoscopic bariatric surgery].",
+    "journal": "Annales francaises d'anesthesie et de reanimation",
+    "year": 2009,
+    "abstract": [
+     {
+      "label": "OBJECTIVE",
+      "text": "To evaluate recruitment manoeuvre (RM) efficiency associated with a 10 cmH(2)O positive end expiratory pressure (PEEP) on respiratory mechanic estimated by lung compliance (Ctp) and PEEP to ZEEP expiratory volume delta (Delta VTE) during laparoscopic bariatric surgery in patients with morbid obesity."
+     },
+     {
+      "label": "STUDY DESIGN",
+      "text": "Prospective randomized study."
+     },
+     {
+      "label": "METHODS",
+      "text": "Twenty-six obese patients (BMI>40 kg/m(2)) undergoing laparoscopic bariatric surgery. The recruitment group received an RM followed by a 10 cmH(2)O PEP versus only 10 cmH(2)O PEP in the control group. Ctp was measured during the intervention and functional residual capacity (FRC) was estimated measuring Delta VTE during a PEP to ZEP manoeuvre. Mann and Whitney tests as well as a t-test were used (significance p<0.05)."
+     },
+     {
+      "label": "RESULTS",
+      "text": "In the RM group, a significant improvement of 52+/-14 ml/cmH(2)O was noted versus a 36+/-10 ml/cmH(2)O in the PEP group (p=0,004). This improvement was transitory and no statistically significant Delta VTE difference was noted between the groups at the end of the intervention (360 [90-770]ml [MRA] and 310 [190-450]ml [PEP])."
+     },
+     {
+      "label": "CONCLUSION",
+      "text": "In patients with morbid obesity undergoing laparoscopic bariatric surgery, an RM conducted prior the pneumoperitoneum temporarily improves lung mechanics but without any change of the end expiratory lung volume at the end of the surgery in comparison with PEP alone. The RM was well tolerated."
+     }
+    ],
+    "statements": [
+     {
+      "id": "T35s1",
+      "text": "Surgical Procedures, Laparoscopic treats Obesity.",
+      "where": "abstract",
+      "span": [
+       2,
+       0,
+       85
+      ],
+      "sentence": "Twenty-six obese patients (BMI>40 kg/m(2)) undergoing laparoscopic bariatric surgery."
+     },
+     {
+      "id": "T35s2",
+      "text": "Surgical Procedures, Laparoscopic treats Patients.",
+      "where": "abstract",
+      "span": [
+       2,
+       0,
+       85
+      ],
+      "sentence": "Twenty-six obese patients (BMI>40 kg/m(2)) undergoing laparoscopic bariatric surgery."
+     },
+     {
+      "id": "T35s3",
+      "text": "Pneumoperitoneum affects Mechanics.",
+      "where": "abstract",
+      "span": [
+       4,
+       0,
+       266
+      ],
+      "sentence": "In patients with morbid obesity undergoing laparoscopic bariatric surgery, an RM conducted prior the pneumoperitoneum temporarily improves lung mechanics but without any change of the end expiratory lung volume at the end of the surgery in comparison with PEP alone."
+     },
+     {
+      "id": "T35s4",
+      "text": "Surgical Procedures, Laparoscopic treats Obesity, Morbid.",
+      "where": "abstract",
+      "span": [
+       4,
+       0,
+       266
+      ],
+      "sentence": "In patients with morbid obesity undergoing laparoscopic bariatric surgery, an RM conducted prior the pneumoperitoneum temporarily improves lung mechanics but without any change of the end expiratory lung volume at the end of the surgery in comparison with PEP alone."
+     }
+    ]
+   },
+   {
+    "id": "T37",
+    "title": "Effect of Extra Virgin Olive Oil and Traditional Brazilian Diet on the Bone Health Parameters of Severely Obese Adults: A Randomized Controlled Trial.",
+    "journal": "Nutrients",
+    "year": 2020,
+    "abstract": [
+     {
+      "label": "",
+      "text": "Dietary interventions can stabilize and/or reverse bone mass loss. However, there are no reports on its effects on bone mineral density (BMD) in severely obese people, despite the vulnerability of this group to bone loss. We examine the effect of extra virgin olive oil supplementation and the traditional Brazilian diet (DieTBra) on BMD and levels of calcium, vitamin D, and parathyroid hormone (PTH) in severely obese adults. A randomized controlled trial followed-up with severely obese adults (n = 111, with mean body mass index 43.6 kg/m2 ± 4.5 kg/m2) for 12 weeks. Study participants received either olive oil (52 mL/day), DieTBra, or olive oil + DieTBra (52 mL/day + DieTBra). BMD was assessed by total spine and hip dual-energy X-ray absorptiometry. After interventions, BMD means for total spine (p = 0.016) and total hip (p = 0.029) were higher in the DieTBra group than in the olive oil + DieTBra group. Final mean calcium levels were higher in the olive oil group compared to the olive oil + DieTBra group (p = 0.026). Findings suggest that DieTBra and extra virgin olive oil have positive effects on bone health in severely obese adults. The major study was registered at ClinicalTrials.gov (NCT02463435)."
+     }
+    ],
+    "statements": [
+     {
+      "id": "T37s1",
+      "text": "Calcium treats Obesity.",
+      "where": "abstract",
+      "span": [
+       0,
+       222,
+       427
+      ],
+      "sentence": "We examine the effect of extra virgin olive oil supplementation and the traditional Brazilian diet (DieTBra) on BMD and levels of calcium, vitamin D, and parathyroid hormone (PTH) in severely obese adults."
+     },
+     {
+      "id": "T37s2",
+      "text": "Ergocalciferol treats Obesity.",
+      "where": "abstract",
+      "span": [
+       0,
+       222,
+       427
+      ],
+      "sentence": "We examine the effect of extra virgin olive oil supplementation and the traditional Brazilian diet (DieTBra) on BMD and levels of calcium, vitamin D, and parathyroid hormone (PTH) in severely obese adults."
+     },
+     {
+      "id": "T37s3",
+      "text": "Parathyroid hormone treats Obesity.",
+      "where": "abstract",
+      "span": [
+       0,
+       222,
+       427
+      ],
+      "sentence": "We examine the effect of extra virgin olive oil supplementation and the traditional Brazilian diet (DieTBra) on BMD and levels of calcium, vitamin D, and parathyroid hormone (PTH) in severely obese adults."
+     },
+     {
+      "id": "T37s4",
+      "text": "Calcium treats Adult.",
+      "where": "abstract",
+      "span": [
+       0,
+       222,
+       427
+      ],
+      "sentence": "We examine the effect of extra virgin olive oil supplementation and the traditional Brazilian diet (DieTBra) on BMD and levels of calcium, vitamin D, and parathyroid hormone (PTH) in severely obese adults."
+     },
+     {
+      "id": "T37s5",
+      "text": "Ergocalciferol treats Adult.",
+      "where": "abstract",
+      "span": [
+       0,
+       222,
+       427
+      ],
+      "sentence": "We examine the effect of extra virgin olive oil supplementation and the traditional Brazilian diet (DieTBra) on BMD and levels of calcium, vitamin D, and parathyroid hormone (PTH) in severely obese adults."
+     },
+     {
+      "id": "T37s6",
+      "text": "Parathyroid hormone treats Adult.",
+      "where": "abstract",
+      "span": [
+       0,
+       222,
+       427
+      ],
+      "sentence": "We examine the effect of extra virgin olive oil supplementation and the traditional Brazilian diet (DieTBra) on BMD and levels of calcium, vitamin D, and parathyroid hormone (PTH) in severely obese adults."
+     }
+    ]
+   },
+   {
+    "id": "T39",
+    "title": "Antipsychotic effects on estimated 10-year coronary heart disease risk in the CATIE schizophrenia study.",
+    "journal": "Schizophrenia research",
+    "year": 2008,
+    "abstract": [
+     {
+      "label": "OBJECTIVE",
+      "text": "Persons with schizophrenia die earlier than the general population, in large part due to cardiovascular disease. The study objective was to examine effects of different antipsychotic treatments on estimates of 10-year coronary heart disease (CHD) risk calculated by the Framingham Heart Study formula."
+     },
+     {
+      "label": "METHOD",
+      "text": "Change in 10-year risk for CHD was compared between treatment groups in 1125 patients followed for 18 months or until treatment discontinuation in the Clinical Antipsychotic Trials of Intervention Effectiveness (CATIE) Schizophrenia Trial."
+     },
+     {
+      "label": "RESULTS",
+      "text": "The covariate-adjusted mean change in 10-year CHD risk differed significantly between treatments. Olanzapine was associated with a 0.5% (SE 0.3) increase and quetiapine, a 0.3% (SE 0.3) increase; whereas risk decreased in patients treated with perphenazine, -0.5% (SE 0.3), risperidone, -0.6% (SE 0.3), and ziprasidone -0.6% (SE 0.4). The difference in 10-year CHD risk between olanzapine and risperidone was statistically significant (p=0.004). Differences in estimated 10-year CHD risk between drugs were most marked in the tertile of subjects with a baseline CHD risk of at least 10%. Among individual CHD risk factors used in the Framingham formula, only total and HDL cholesterol levels differed between treatments."
+     },
+     {
+      "label": "CONCLUSIONS",
+      "text": "These results indicate that the impact on 10-year CHD risk differs significantly between antipsychotic agents, with olanzapine producing the largest elevation in CHD risk of the agents studied in CATIE."
+     }
+    ],
+    "statements": [
+     {
+      "id": "T39s1",
+      "text": "Perphenazine treats Patients.",
+      "where": "abstract",
+      "span": [
+       2,
+       98,
+       334
+      ],
+      "sentence": "Olanzapine was associated with a 0.5% (SE 0.3) increase and quetiapine, a 0.3% (SE 0.3) increase; whereas risk decreased in patients treated with perphenazine, -0.5% (SE 0.3), risperidone, -0.6% (SE 0.3), and ziprasidone -0.6% (SE 0.4)."
+     }
+    ]
+   },
+   {
+    "id": "T40",
+    "title": "The effect of topiramate on energy balance in obese men: a 6-month double-blind randomized placebo-controlled study with a 6-month open-label extension.",
+    "journal": "European journal of clinical pharmacology",
+    "year": 2007,
+    "abstract": [
+     {
+      "label": "OBJECTIVE",
+      "text": "Topiramate (TPM) has been reported to reduce body weight beyond a placebo in the treatment of obese participants, but the effect of this agent on components of energy balance has not yet been established in humans. Thus, the aim of this study was to study the impact of TPM on food preferences, measures of satiety, food intake, resting metabolic rate (RMR), and 24-h energy expenditure."
+     },
+     {
+      "label": "METHODS",
+      "text": "The study design consisted of a 6-month, single-center, randomized, double-blind, parallel group, placebo-controlled trial with a 6-month open-label extension. The study included 68 sedentary men with abdominal obesity (waist circumference > or = 100 cm), of between 25 and 55 years of age, with a dyslipidemic profile and a body mass index (BMI) > or = 27 and < or = 40 kg/m(2)."
+     },
+     {
+      "label": "RESULTS",
+      "text": "Treatment with TPM produced significant changes in anthropometric variables and body composition compared with placebo. However, at the end of the 1-year study, the placebo/TPM group showed similar weight loss and reduction in body fatness compared with the TPM/TPM group. For instance, at the end of the 12-month intervention, mean percentage of body weight loss from baseline was about -5% in both groups (-4 kg fat loss). Topiramate treatment reduced energy intake, be it in the context of an ad libitum buffet-type meal or under free living conditions. The 24-h daily energy expenditure (DEE) assessed by whole-body indirect calorimetry adjusted for body weight and age was not altered by TPM treatment."
+     },
+     {
+      "label": "CONCLUSION",
+      "text": "Topiramate treatment produced significantly greater weight loss than placebo and the majority of this loss was explained by a decrease in body fat stores. Most of the weight loss effect produced by TPM therapy was observed within a period of 6 months. Finally, TPM treatment had an impact on energy balance through a reduction in food intake that appears to have created an energy deficit of about 30,000-40,000 kcal compared with treatment with the placebo over 6 months."
+     }
+    ],
+    "statements": [
+     {
+      "id": "T40s1",
+      "text": "Topiramate affects Energy Balance.",
+      "where": "title",
+      "span": null,
+      "sentence": "The effect of topiramate on energy balance in obese men: a 6-month double-blind randomized placebo-controlled study with a 6-month open-label extension."
+     },
+     {
+      "id": "T40s2",
+      "text": "Placebos treats Obesity.",
+      "where": "abstract",
+      "span": [
+       0,
+       0,
+       214
+      ],
+      "sentence": "Topiramate (TPM) has been reported to reduce body weight beyond a placebo in the treatment of obese participants, but the effect of this agent on components of energy balance has not yet been established in humans."
+     },
+     {
+      "id": "T40s3",
+      "text": "Placebos treats Participant.",
+      "where": "abstract",
+      "span": [
+       0,
+       0,
+       214
+      ],
+      "sentence": "Topiramate (TPM) has been reported to reduce body weight beyond a placebo in the treatment of obese participants, but the effect of this agent on components of energy balance has not yet been established in humans."
+     },
+     {
+      "id": "T40s4",
+      "text": "Topiramate is compared with Placebos.",
+      "where": "abstract",
+      "span": [
+       2,
+       0,
+       119
+      ],
+      "sentence": "Treatment with TPM produced significant changes in anthropometric variables and body composition compared with placebo."
+     },
+     {
+      "id": "T40s5",
+      "text": "Topiramate does not affect Energy Metabolism.",
+      "where": "abstract",
+      "span": [
+       2,
+       557,
+       707
+      ],
+      "sentence": "The 24-h daily energy expenditure (DEE) assessed by whole-body indirect calorimetry adjusted for body weight and age was not altered by TPM treatment."
+     },
+     {
+      "id": "T40s6",
+      "text": "Therapeutic procedure does not affect Energy Metabolism.",
+      "where": "abstract",
+      "span": [
+       2,
+       557,
+       707
+      ],
+      "sentence": "The 24-h daily energy expenditure (DEE) assessed by whole-body indirect calorimetry adjusted for body weight and age was not altered by TPM treatment."
+     },
+     {
+      "id": "T40s7",
+      "text": "Topiramate affects Energy Balance.",
+      "where": "abstract",
+      "span": [
+       3,
+       252,
+       472
+      ],
+      "sentence": "Finally, TPM treatment had an impact on energy balance through a reduction in food intake that appears to have created an energy deficit of about 30,000-40,000 kcal compared with treatment with the placebo over 6 months."
+     },
+     {
+      "id": "T40s8",
+      "text": "Topiramate is compared with Therapeutic procedure.",
+      "where": "abstract",
+      "span": [
+       3,
+       252,
+       472
+      ],
+      "sentence": "Finally, TPM treatment had an impact on energy balance through a reduction in food intake that appears to have created an energy deficit of about 30,000-40,000 kcal compared with treatment with the placebo over 6 months."
+     },
+     {
+      "id": "T40s9",
+      "text": "Therapeutic procedure affects Energy Balance.",
+      "where": "abstract",
+      "span": [
+       3,
+       252,
+       472
+      ],
+      "sentence": "Finally, TPM treatment had an impact on energy balance through a reduction in food intake that appears to have created an energy deficit of about 30,000-40,000 kcal compared with treatment with the placebo over 6 months."
+     },
+     {
+      "id": "T40s10",
+      "text": "Therapeutic procedure is compared with Therapeutic procedure.",
+      "where": "abstract",
+      "span": [
+       3,
+       252,
+       472
+      ],
+      "sentence": "Finally, TPM treatment had an impact on energy balance through a reduction in food intake that appears to have created an energy deficit of about 30,000-40,000 kcal compared with treatment with the placebo over 6 months."
+     }
+    ]
+   },
+   {
+    "id": "T46",
+    "title": "A double-blind comparison of the efficacy and safety of milnacipran and fluoxetine in depressed inpatients.",
+    "journal": "International clinical psychopharmacology",
+    "year": 1998,
+    "abstract": [
+     {
+      "label": "",
+      "text": "This double-blind, randomised, multicentre study compared the antidepressant efficacy and safety of two doses of milnacipran (100 mg/day and 200 mg/day) and fluoxetine (20 mg/day) in 289 inpatients with endogenous depression. After a placebo washout period of 4-7 days, assessments were performed weekly during the first 4 weeks, and then after 6, 8 and 12 weeks, using the 17-item Hamilton Depression Rating Scale (HDRS), the Montgomery-Asberg Depression Rating Scale (MADRS) and the Clinical Global Impression (CGI). HDRS total score was reduced by a mean of 14.8 in the milnacipran 100 mg/day group, 12.9 in the milnacipran 200 mg/day group and 12.1 in the fluoxetine 20 mg/day group. MADRS total score decreased by 17.4, 15.8 and 14.6, respectively. No significant difference could be shown between the three treatment groups for either the HDRS or MADRS total scores. However, the time-by-time change showed a trend in favour of milnacipran 100 mg/day, which was found significantly superior to fluoxetine at day 28 for several converging parameters (MADRS, CGI-3). Overall, efficacy ratings for all parameters were highest for milnacipran 100 mg/day, followed by milnacipran 200 mg/day and fluoxetine 20 mg/day. Side-effect profiles were not significantly different between groups except for a significantly greater frequency of dose-related increase in heart rate > or = 100 bpm in milnacipran recipients and a significantly greater weight loss in fluoxetine recipients."
+     }
+    ],
+    "statements": [
+     {
+      "id": "T46s1",
+      "text": "Fluoxetine treats inpatient.",
+      "where": "title",
+      "span": null,
+      "sentence": "A double-blind comparison of the efficacy and safety of milnacipran and fluoxetine in depressed inpatients."
+     },
+     {
+      "id": "T46s2",
+      "text": "Milnacipran treats inpatient.",
+      "where": "title",
+      "span": null,
+      "sentence": "A double-blind comparison of the efficacy and safety of milnacipran and fluoxetine in depressed inpatients."
+     },
+     {
+      "id": "T46s3",
+      "text": "Milnacipran is compared with Fluoxetine.",
+      "where": "title",
+      "span": null,
+      "sentence": "A double-blind comparison of the efficacy and safety of milnacipran and fluoxetine in depressed inpatients."
+     },
+     {
+      "id": "T46s4",
+      "text": "Fluoxetine treats Endogenous depression.",
+      "where": "abstract",
+      "span": [
+       0,
+       0,
+       225
+      ],
+      "sentence": "This double-blind, randomised, multicentre study compared the antidepressant efficacy and safety of two doses of milnacipran (100 mg/day and 200 mg/day) and fluoxetine (20 mg/day) in 289 inpatients with endogenous depression."
+     },
+     {
+      "id": "T46s5",
+      "text": "Milnacipran treats Endogenous depression.",
+      "where": "abstract",
+      "span": [
+       0,
+       0,
+       225
+      ],
+      "sentence": "This double-blind, randomised, multicentre study compared the antidepressant efficacy and safety of two doses of milnacipran (100 mg/day and 200 mg/day) and fluoxetine (20 mg/day) in 289 inpatients with endogenous depression."
+     },
+     {
+      "id": "T46s6",
+      "text": "Fluoxetine treats inpatient.",
+      "where": "abstract",
+      "span": [
+       0,
+       0,
+       225
+      ],
+      "sentence": "This double-blind, randomised, multicentre study compared the antidepressant efficacy and safety of two doses of milnacipran (100 mg/day and 200 mg/day) and fluoxetine (20 mg/day) in 289 inpatients with endogenous depression."
+     },
+     {
+      "id": "T46s7",
+      "text": "Milnacipran treats inpatient.",
+      "where": "abstract",
+      "span": [
+       0,
+       0,
+       225
+      ],
+      "sentence": "This double-blind, randomised, multicentre study compared the antidepressant efficacy and safety of two doses of milnacipran (100 mg/day and 200 mg/day) and fluoxetine (20 mg/day) in 289 inpatients with endogenous depression."
+     },
+     {
+      "id": "T46s8",
+      "text": "Milnacipran is compared with Fluoxetine.",
+      "where": "abstract",
+      "span": [
+       0,
+       0,
+       225
+      ],
+      "sentence": "This double-blind, randomised, multicentre study compared the antidepressant efficacy and safety of two doses of milnacipran (100 mg/day and 200 mg/day) and fluoxetine (20 mg/day) in 289 inpatients with endogenous depression."
+     }
+    ]
+   },
+   {
+    "id": "T48",
+    "title": "Effects of exercise-induced weight loss on low density lipoprotein subfractions in healthy men.",
+    "journal": "Arteriosclerosis (Dallas, Tex.)",
+    "year": 1989,
+    "abstract": [
+     {
+      "label": "",
+      "text": "One-year changes in low density lipoprotein (LDL) peak flotation (Sf) rate and serum mass concentrations of LDL of Sf 0 to 7 (small LDL), LDL of Sf 7 to 12 (large LDL), intermediate density lipoprotein (IDL) of Sf 12 to 20, and very low density lipoprotein (VLDL) of Sf 20 to 400 were compared between men assigned at random to a 1-year exercise program (N = 48) or to a sedentary control condition (N = 31). Distance run among exercisers varied substantially (mean +/- SD: 12.7 +/- 8.9 km/week). Mean changes were not significantly different between the exercise and control groups for any of the low to very low density lipoprotein measurements. However, within the exercise group: 1) distance run correlated negatively with changes in the mass concentrations of small LDL; and 2) weight loss and reduced upper body obesity correlated positively with changes in small LDL, IDL, and VLDL mass and negatively with change in LDL peak flotation rate. Analyses with partial correlations suggest that weight loss may primarily affect LDL mass distributions through metabolic processes associated with high density lipoprotein2 or small VLDL (Sf 20 to 60). The decrease in small LDL concentrations and the increase in LDL peak flotation rate suggest that exercise-induced weight loss may be effective in reducing coronary heart disease risk in persons genetically predisposed to a high-risk lipoprotein profile."
+     }
+    ],
+    "statements": [
+     {
+      "id": "T48s1",
+      "text": "Very low density lipoprotein affects Sedentary.",
+      "where": "abstract",
+      "span": [
+       0,
+       0,
+       408
+      ],
+      "sentence": "One-year changes in low density lipoprotein (LDL) peak flotation (Sf) rate and serum mass concentrations of LDL of Sf 0 to 7 (small LDL), LDL of Sf 7 to 12 (large LDL), intermediate density lipoprotein (IDL) of Sf 12 to 20, and very low density lipoprotein (VLDL) of Sf 20 to 400 were compared between men assigned at random to a 1-year exercise program (N = 48) or to a sedentary control condition (N = 31)."
+     }
+    ]
+   },
+   {
+    "id": "T50",
+    "title": "Influence of Ala54Thr polymorphism of fatty acid-binding protein 2 on weight loss and insulin levels secondary to two hypocaloric diets: a randomized clinical trial.",
+    "journal": "Diabetes research and clinical practice",
+    "year": 2008,
+    "abstract": [
+     {
+      "label": "OBJECTIVE",
+      "text": "A transition G to A at codon 54 of FABP2 was associated with high insulin resistance and different dietary response. The aim of our study was to investigate the influence of this polymorphism on weight loss and metabolic changes secondary to two hypocaloric diets."
+     },
+     {
+      "label": "SUBJECTS AND METHODS",
+      "text": "A sample of 204 obesity patients was analyzed. Before and after 2 months of hypocaloric diet, a nutritional evaluation was performed. Patients were randomly allocated to diet I (low-fat diet) or II (low carbohydrate diet)."
+     },
+     {
+      "label": "RESULTS",
+      "text": "With diet Type I and in the wild group (Ala54/Ala54), BMI, weight, fat mass, waist circumference, waist to hip ratio, systolic and diastolic blood pressures, total cholesterol, triglyceride and insulin levels decreased. In the mutant group (Ala54/Thr54 and Thr54/Thr54), BMI, weight, waist circumference and fat mass decreased. In the wild group with diet Type II, the same parameters that group I decreased and glucose levels, too. In the mutant group, BMI, weight, waist circumference and fat mass decreased. Only leptin levels have a significant decrease in the wild group with both diets (diet I: 30.7%; p<0.05 and diet II: 15.85%; p<0.05)."
+     },
+     {
+      "label": "CONCLUSION",
+      "text": "Similar weight loss is associated with different changes, depending on the FABP genotype with both diets. Weight loss is associated with a more deep decrease in serum leptin concentration with low-fat diet."
+     }
+    ],
+    "statements": [
+     {
+      "id": "T50s1",
+      "text": "FABP2 protein, human|FABP2 affects Body Weight decreased.",
+      "where": "title",
+      "span": null,
+      "sentence": "Influence of Ala54Thr polymorphism of fatty acid-binding protein 2 on weight loss and insulin levels secondary to two hypocaloric diets: a randomized clinical trial."
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -1,15 +1,18 @@
-// Screens and flow: welcome, sheet intro, trial, pause and finish.
+// Screens and flow: welcome, sheet intro, trial (and, when switched on, statements), pause and finish.
 import { h } from './dom.js';
 import * as store from './storage.js';
 import * as sync from './sync.js';
 import * as api from './api.js';
 import { renderMarkdown } from './markdown.js';
-import { APP_VERSION, Session, minutesFor, partsIn, formatMinutes, formatTotal } from './state.js';
+import { APP_VERSION, Session, minutesFor, partsIn, partWord, formatMinutes, formatTotal } from './state.js';
 import { TRIAL_UI } from './trial.js';
+import { STATEMENTS_UI } from './statements.js';
 
 // One entry per sheet: empty(item), fromAnswer(answer, item), validate(draft, item), finalize(draft, item),
 // mount(item, st) and the keys line.
-const SHEET_UI = { trials: TRIAL_UI };
+const SHEET_UI = { trials: TRIAL_UI, statements: STATEMENTS_UI };
+/** The PICO guide belongs to the trials sheet; the statements sheet has its own short instructions. */
+const hasGuide = (sheet) => sheet.id !== 'statements';
 const GUIDE_TITLE = 'How a finding is laid out (PICO), and three conventions';
 const CODE_ALPHABET = '0123456789ABCDEFGHJKMNPQRSTVWXYZ'; // Crockford base32: no I, L, O, U
 const CODE_RE = /^[0-9A-HJKMNP-TV-Z]{10}$/;
@@ -166,7 +169,8 @@ function renderTopbar({ sheet = '', count = '', pause = false } = {}) {
         pause ? h('button', { type: 'button', class: 'btn btn-small', onclick: pauseNow }, 'Pause') : null)),
     h('div', {
       class: 'progress', role: 'progressbar', 'aria-label': 'Overall progress',
-      'aria-valuemin': 0, 'aria-valuemax': session.total, 'aria-valuenow': done, title: `${done} of ${session.total} trials rated`,
+      'aria-valuemin': 0, 'aria-valuemax': session.total, 'aria-valuenow': done,
+      title: session.sheets.length > 1 ? `${done} of ${session.total} screens done, both sheets together` : `${done} of ${session.total} trials rated`,
     }, h('div', { class: 'progress-fill', style: `width:${pct.toFixed(2)}%` })));
 }
 
@@ -229,7 +233,7 @@ export function showWelcome() {
   renderBanners();
   const sheets = data.sheets;
   const totalMin = sheets.reduce((n, s) => n + minutesFor(s), 0);
-  const size = (s) => `${s.items.length} trials, ${partsIn(s)} findings`;
+  const size = (s) => `${s.items.length} trials, ${partsIn(s)} ${partWord(s)}`;
   const table = h('table', { class: 'sheet-table' },
     h('thead', {}, h('tr', {}, h('th', {}, 'Sheet'), h('th', {}, 'What you judge'), h('th', { class: 'num' }, 'How many'), h('th', { class: 'num' }, 'Time'))),
     h('tbody', {}, sheets.map((s, i) => h('tr', {},
@@ -428,12 +432,12 @@ function showIntro(s, { note = '' } = {}) {
       h('button', { type: 'button', class: 'btn', onclick: () => showItem(s, 0) }, 'Review from trial 1')]
     : [h('button', { type: 'button', class: 'btn btn-primary', onclick: () => showItem(s, first) }, first > 0 ? `Continue at trial ${first + 1}` : 'Begin')];
   $('main').replaceChildren(h('section', { class: 'intro' },
-    note ? h('p', { class: 'note-done' }, note) : null,
+    note ? h('p', { class: 'note-done' }, note, s > 0 && first >= 0 ? ' This is a good place to stop: everything so far is saved, and you can do the next part another day.' : '') : null,
     session.sheets.length > 1 ? h('p', { class: 'eyebrow' }, `Sheet ${s + 1} of ${session.sheets.length}`) : null,
     h('h1', {}, sheet.title),
-    h('p', { class: 'lede' }, `${capitalize(sheet.short)} · ${n} trials, ${partsIn(sheet)} findings · ${formatMinutes(minutesFor(sheet))}`),
+    h('p', { class: 'lede' }, `${capitalize(sheet.short)} · ${n} trials, ${partsIn(sheet)} ${partWord(sheet)} · ${formatMinutes(minutesFor(sheet))}`),
     h('div', { class: 'md instructions', html: renderMarkdown(sheet.instructions) }),
-    guideDetails(GUIDE_TITLE, data.common_instructions),
+    hasGuide(sheet) ? guideDetails(GUIDE_TITLE, data.common_instructions) : null,
     codeLine(),
     h('div', { class: 'actions' }, actions)));
   actions[0].focus({ preventScroll: true });
@@ -482,8 +486,7 @@ function buildItemScreen(s) {
       h('p', { class: 'keys' }, ui.keys),
       h('details', { class: 'guide' }, h('summary', {}, 'Instructions'),
         h('div', { class: 'md', html: renderMarkdown(sheet.instructions) }),
-        h('h3', {}, GUIDE_TITLE),
-        h('div', { class: 'md', html: renderMarkdown(data.common_instructions) }))));
+        hasGuide(sheet) ? [h('h3', {}, GUIDE_TITLE), h('div', { class: 'md', html: renderMarkdown(data.common_instructions) })] : null)));
   $('main').replaceChildren(root);
   const st = {
     s, i: -1, sheet, it: null, draft: null, ctrl: null, watch: null, root, host, back, next, hint,
@@ -669,7 +672,7 @@ function showFinish() {
   }, 'Download my answers (JSON)');
   $('main').replaceChildren(h('section', { class: 'panel-page finish' },
     h('h1', {}, `Thank you, ${session.name}.`),
-    h('p', { class: 'lede' }, 'You have rated every trial.'),
+    h('p', { class: 'lede' }, session.sheets.length > 1 ? 'You have finished both parts.' : 'You have rated every trial.'),
     h('table', { class: 'sheet-table compact' },
       h('thead', {}, h('tr', {}, h('th', {}, 'Sheet'), h('th', { class: 'num' }, 'Rated'))),
       h('tbody', {}, session.sheets.map((s) => h('tr', {},
@@ -702,6 +705,7 @@ function downloadAnswers() {
     what: 'Trial findings rating: backup of one evaluator’s answers',
     site: siteUrl(),
     items_version: data.version,
+    statements_version: data.statements_version, // present only when the statements sheet is on
     app_version: APP_VERSION,
     exported_at: new Date().toISOString(),
     code: session.code,
