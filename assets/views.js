@@ -42,6 +42,11 @@ export function initUI(itemsData) {
   data = itemsData;
   sync.onStatus((info) => { syncInfo = info; paintStatus(); });
   document.addEventListener('keydown', onKey);
+  // The "Email me my code" menu closes on a click elsewhere and on Escape.
+  document.addEventListener('click', (event) => {
+    if (!(event.target instanceof Element) || !event.target.closest('.mail-wrap')) closeMailMenus();
+  });
+  document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMailMenus(); });
 }
 
 /** The trial screen uses the full width; every other screen is a narrow column. */
@@ -56,11 +61,51 @@ export function showFatal(message) {
 
 function siteUrl() { return new URL('.', window.location.href).href; }
 
-function mailtoHref() {
-  const subject = 'My code for the trial findings rating';
-  const body = `Your code: ${session.code}\n\nTo continue on any device, open ${siteUrl()} and enter the code under "Resume with a code".\n`;
-  const to = String(session.email).replace(/[?&#%\s]/g, encodeURIComponent);
-  return `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+/** The message a rater sends to themself to keep the code. */
+function codeMessage() {
+  return {
+    to: String(session.email),
+    subject: 'My code for the trial findings rating',
+    body: `Your code: ${session.code}\n\nTo continue on any device, open ${siteUrl()} and enter the code under "Resume with a code".\n`,
+  };
+}
+
+/** "Email me my code". The site has no mail server, and a plain mailto link does nothing on a computer with no mail
+ *  program set up, so the button opens a short menu: the same message, already written and addressed to the rater,
+ *  in Gmail, Outlook on the web or the computer's mail program, or copied to the clipboard. */
+function emailCode(align = 'right') {
+  const { to, subject, body } = codeMessage();
+  const q = encodeURIComponent;
+  const links = [
+    ['Gmail', `https://mail.google.com/mail/?view=cm&fs=1&to=${q(to)}&su=${q(subject)}&body=${q(body)}`],
+    ['Outlook on the web (work or school)', `https://outlook.office.com/mail/deeplink/compose?to=${q(to)}&subject=${q(subject)}&body=${q(body)}`],
+    ['Outlook.com (personal)', `https://outlook.live.com/mail/0/deeplink/compose?to=${q(to)}&subject=${q(subject)}&body=${q(body)}`],
+    ['The mail program on this computer', `mailto:${to.replace(/[?&#%\s]/g, q)}?subject=${q(subject)}&body=${q(body)}`],
+  ];
+  const copy = h('button', {
+    type: 'button',
+    onclick: async () => {
+      let ok = true;
+      try { await navigator.clipboard.writeText(`${subject}\n\n${body}`); } catch { ok = false; }
+      copy.textContent = ok ? 'Copied: paste it into a message or a note' : 'Copy failed: write the code down';
+      setTimeout(() => { copy.textContent = 'Copy the message'; }, 2500);
+    },
+  }, 'Copy the message');
+  const menu = h('div', { class: `mail-menu${align === 'left' ? ' left' : ''}`, hidden: true },
+    h('p', {}, 'Choose the mail you use. A message to yourself opens, already written; press Send there.'),
+    links.map(([name, href]) => (href.startsWith('mailto:')
+      ? h('a', { href }, name)
+      : h('a', { href, target: '_blank', rel: 'noopener' }, name))),
+    copy);
+  const button = h('button', {
+    type: 'button', class: 'btn-link', 'aria-haspopup': 'true',
+    onclick: () => { const open = menu.hidden; closeMailMenus(); menu.hidden = !open; },
+  }, 'Email me my code');
+  return h('span', { class: 'mail-wrap' }, button, menu);
+}
+
+function closeMailMenus() {
+  document.querySelectorAll('.mail-menu').forEach((m) => { m.hidden = true; });
 }
 
 async function copyCode(button) {
@@ -116,7 +161,7 @@ function renderTopbar({ sheet = '', count = '', pause = false } = {}) {
       h('div', { class: 'tb-right' },
         h('span', { class: 'code-chip', title: 'Your code is how you resume on another device: choose "Resume with a code" there.' },
           h('span', { class: 'code-label' }, 'Your code'), h('code', { class: 'code' }, session.code), copy,
-          h('a', { class: 'btn-link', href: mailtoHref() }, 'Email me my code')),
+          emailCode('right')),
         statusDot(),
         pause ? h('button', { type: 'button', class: 'btn btn-small', onclick: pauseNow }, 'Pause') : null)),
     h('div', {
@@ -166,7 +211,7 @@ function codeLine() {
   return h('p', { class: 'code-line' },
     'Your code is ', h('code', {}, session.code),
     '. It is how you resume on another device: open this page there and choose “Resume with a code”. ',
-    h('a', { href: mailtoHref() }, 'Email me my code'));
+    emailCode('left'));
 }
 
 function guideDetails(summary, md) {
@@ -596,7 +641,7 @@ function showPause(where) {
       : h('p', {}, 'To continue later, open this page again: this browser remembers you. On another device, open ',
         h('a', { href: siteUrl() }, siteUrl()), ' and enter your code under “Resume with a code”.'),
     h('p', { class: 'code-big' }, h('span', { class: 'muted' }, 'Your code '), h('code', {}, session.code), ' ',
-      h('a', { href: mailtoHref() }, 'Email me my code')),
+      emailCode('left')),
     h('div', { class: 'actions' },
       h('button', { type: 'button', class: 'btn btn-primary', id: 'continue-rating', onclick: () => showItem(where.s, where.i) }, 'Continue rating'),
       h('button', { type: 'button', class: 'btn', onclick: downloadAnswers }, 'Download my answers (JSON)'))));

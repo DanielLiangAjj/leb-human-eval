@@ -1,9 +1,13 @@
 # Trial findings, clinician rating site
 
 A static site where clinicians rate what the living evidence base read from the abstracts of randomized
-trials. One screen per trial: the abstract on the left; on the right the trial at a glance, then every
-finding laid out as PICO (population, intervention, comparator, outcome) with its result, and a last
-question on whether the abstract states a result that is not in the list. Each evaluator rates every
+trials. One screen per trial: the abstract on the left; on the right everything that was read from it.
+First the trial as a whole (design, condition, participants, their number, each group with its size, each
+outcome, subgroups, registration number), then every finding laid out as PICO (population, intervention,
+comparator, outcome, each with the standard name it was coded to) with its direction, time point, wording,
+primary-outcome flag, numbers and source sentence, and a last question on whether the abstract states a
+result that is not in the list. Every field is a box; a click marks it as wrong, and a comment is required
+whenever something is wrong or the rater is unsure. Each evaluator rates every
 trial, in an order seeded by their personal code, over as many sittings as they like, and can resume
 on any device with the code. Answers are saved on every Next to a Supabase project and pulled with
 `scripts/pull_ratings.py`; `scripts/score.py` turns them into the numbers for the paper.
@@ -17,7 +21,8 @@ evidence base repository (`docs/evaluation/clinician_50/key.json`) and must not 
 
 The sample of 2026-11-17 (`clinician_50`): 50 trials, 10 per period (before 2000, 2000s, 2010s, 2020s,
 indexed since May 2026), drawn in a fixed hash order from the 24,642 papers the base reads as randomized
-trials; 245 findings (at most 8 per trial; 3 trials have none). About 3 hours per evaluator.
+trials; 245 findings (at most 8 per trial; 3 trials have none). About 4.5 hours per evaluator, since every
+field is checked (`--max-per-trial 5` in the export gives 188 findings and about 4 hours).
 
 ## Run it locally
 
@@ -82,9 +87,11 @@ is saved twice, the copy with the later `client_ts` wins.
 
 ```json
 {
-  "glance":   {"rating": "correct" | "not correct" | "unsure", "note": "..."},
+  "glance":   {"rating": "correct" | "not correct" | "unsure",
+               "wrong": ["arm:A2", "n", "outcome_missing"],
+               "note": "..."},
   "findings": {"T07a": {"rating": "correct" | "not correct" | "unsure",
-                        "wrong": ["p", "i", "c", "o", "d", "n"],
+                        "wrong": ["c", "ko", "t"],
                         "no_result": false,
                         "worth": "yes" | "no" | "unsure" | null,
                         "note": "..."}},
@@ -92,15 +99,25 @@ is saved twice, the copy with the later `client_ts` wins.
 }
 ```
 
-- `glance`: are the participants, the groups and their sizes what the abstract states. A note is
-  required with "not correct".
-- `findings`: one entry per finding shown. `wrong` lists the parts marked wrong: population,
-  intervention, comparator, outcome, direction, numbers. `no_result` is the box "the sentence does not
-  report a result between these two groups". With "not correct", at least one of `wrong`, `no_result`
-  or a note is required, and `worth` is null. With "correct" or "unsure", `worth` is required.
+- `glance` is the trial block. "correct" means every box is what the abstract states. `wrong` lists the
+  boxes marked: `design`, `condition`, `kcond` (standard name of the condition), `population`, `n` (number
+  of participants), `reg` (registration), `arm:<id>`, `outcome:<id>`, `subgroup:<id>` (ids as in
+  `data/items.json`), and `arm_missing`, `outcome_missing` for a group or an outcome that is not listed.
+  With "not correct" at least one box and a comment are required; with "unsure" a comment.
+- `findings` has one entry per finding shown. `wrong` lists the boxes marked: `p` population,
+  `i` intervention, `ki` its standard name, `c` comparator, `kc` its standard name, `o` outcome, `ko` its
+  standard name, `d` direction, `u` the measure itself (shown when the outcome is named as a reduction),
+  `t` time point, `h` primary outcome, `s` how the abstract words it, `nv` values in each group,
+  `ne` estimate, `np` P value, `q` the sentence. `no_result` is the box "the sentence does not report a
+  result between these two groups". With "not correct", at least one of `wrong` or `no_result` and a
+  comment are required, and `worth` is null. With "unsure" a comment and `worth` are required; with
+  "correct", `worth`.
 - `missing`: does the abstract state a result between two groups that is not in the list ("no" is
-  nothing missing). Text is required with "yes". For a trial with no finding the question is whether
-  the abstract states any such result.
+  nothing missing). Text is required with "yes" and with "unsure". For a trial with no finding the
+  question is whether the abstract states any such result.
+
+A box that the pipeline left empty (no standard name, no time point, no number) is shown as such and
+cannot be marked; `scripts/score.py` counts each box only where it was shown.
 
 A trial being filled in is kept as a draft in the browser (`leb:d:...`) until Next saves it, so a
 reload or a pause loses nothing.
@@ -109,9 +126,13 @@ reload or a pause loses nothing.
 
 `data/items.json` is written by `scripts/clinician_site.py` of the evidence base repository (run on the
 server; do not edit the file by hand). Per trial: title, journal, year, the abstract in its sections,
-the trial at a glance (population, number of participants, groups with their sizes), the findings in the
-order of the abstract (each with P, I, C, O, direction, the numbers read for the comparison, the
-sentence and where it sits in the abstract) and how many findings are not shown. A second sheet,
+the trial block (design and where the design came from, condition and its standard name, participants,
+their number and its source, groups with role and size, outcomes with their primary and safety flags,
+subgroups, registration number and its source), the findings in the order of the abstract (each with P, I,
+C, O and their standard names, where the comparator was named, direction, the measure itself when the
+outcome is named as a reduction, time point, primary-outcome flag, how the abstract words the result,
+the numbers read for the comparison, the sentence with the words that state the effect, and where it sits
+in the abstract) and how many findings are not shown. A second sheet,
 `statements` (statements of two systems rated blind, for the comparison with SemMedDB), is reserved:
 the database accepts it and the site skips a sheet that is not in the file.
 

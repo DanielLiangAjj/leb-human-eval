@@ -20,8 +20,9 @@ files the Supabase table editor exports (Table Editor > leb_evaluators > Export 
   python3 scripts/pull_ratings.py --backup trial-findings-ratings-CODE.json [--backup ...] --out results/2026-12-01
 
 Writes into --out: evaluators.csv, ratings.jsonl (raw rows), progress.json and, per rater k,
-rater<k>_trials.tsv (one row per trial: the two trial-level answers and the time on screen) and
-rater<k>_findings.tsv (one row per finding: rating, parts marked wrong, worth, note).
+rater<k>_trials.tsv (one row per trial: the trial block's rating, the boxes marked wrong and the comment, the
+answer on missing results, the time on screen) and rater<k>_findings.tsv (one row per finding: rating, boxes
+marked wrong, worth, comment).
 Raters are numbered by sign-up order unless --map assigns numbers (then only the mapped evaluators get sheets).
 scripts/score.py reads ratings.jsonl together with the key that never goes to the site.
 """
@@ -259,17 +260,19 @@ def main():
             g, m = ans.get('glance') or {}, ans.get('missing') or {}
             secs = round(r['elapsed_ms'] / 1000) if r and r.get('elapsed_ms') is not None else ''
             trials.append([it['id'], clean(it['title']), it.get('year') or '', len(it['findings']), it.get('not_shown') or 0,
-                           g.get('rating') or '', clean(g.get('note')), m.get('rating') or '', clean(m.get('text')), secs])
+                           g.get('rating') or '', ' '.join(g.get('wrong') or []), clean(g.get('note')),
+                           m.get('rating') or '', clean(m.get('text')), secs])
             for f in it['findings']:
                 x = (ans.get('findings') or {}).get(f['id']) or {}
                 findings.append([f['id'], it['id'], clean(f['p']['text']), clean(f['i']['text']), clean(f['c']['text']),
                                  clean(f['o']['text']), f['direction'], x.get('rating') or '', ' '.join(x.get('wrong') or []),
                                  'yes' if x.get('no_result') else '', x.get('worth') or '', clean(x.get('note'))])
         write_tsv(os.path.join(a.out, f'rater{k}_trials.tsv'),
-                  ['trial', 'title', 'year', 'findings shown', 'findings not shown', 'glance', 'glance note', 'missing', 'missing text', 'seconds'], trials)
+                  ['trial', 'title', 'year', 'findings shown', 'findings not shown', 'trial block', 'trial boxes marked wrong',
+                   'trial comment', 'missing', 'missing text', 'seconds'], trials)
         write_tsv(os.path.join(a.out, f'rater{k}_findings.tsv'),
                   ['finding', 'trial', 'population', 'intervention', 'comparator', 'outcome', 'direction', 'rating',
-                   'wrong parts', 'no result between these groups', 'worth', 'note'], findings)
+                   'boxes marked wrong', 'no result between these groups', 'worth', 'comment'], findings)
         written.append(k)
 
     with open(os.path.join(a.out, 'progress.json'), 'w', encoding='utf-8') as f:

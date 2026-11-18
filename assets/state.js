@@ -3,13 +3,13 @@
 import { seededShuffle } from './prng.js';
 
 /** Stored with every answer; bump it whenever an answer format changes. */
-export const APP_VERSION = '1.0';
+export const APP_VERSION = '2.0'; // 2.0: every extracted field is a box; answers list the boxes marked wrong; a comment is required
 
 // 'statements' is reserved for a later second sheet (statements of two systems, rated blind);
 // the database already accepts it, and a sheet missing from data/items.json is simply skipped.
 export const SHEET_ORDER = ['trials', 'statements'];
-const SECONDS_PER_TRIAL = 90;    // reading the abstract and the two trial-level questions
-const SECONDS_PER_FINDING = 25;
+const SECONDS_PER_TRIAL = 150;   // reading the abstract and checking the trial block
+const SECONDS_PER_FINDING = 35;  // every box of a finding
 
 export async function loadItems() {
   const res = await fetch('data/items.json', { cache: 'no-cache' });

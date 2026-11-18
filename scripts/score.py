@@ -6,7 +6,8 @@
 ratings.jsonl is written by scripts/pull_ratings.py. The key (which record each shown finding is, with its status in
 the base) is written by scripts/clinician_site.py of the evidence base and is kept outside this site.
 The report gives, per rater: the share of findings read correctly, for the findings that pass the base's checks and for
-the ones the checks hold; which part was wrong; the share worth having; the two trial-level answers; the time taken.
+the ones the checks hold; how often each box (each field the pipeline wrote down) was marked wrong, for the findings and
+for the trial block; the share worth having; the answer on missing results; the time taken.
 With two raters it adds their agreement (raw and Cohen's kappa).
 """
 import argparse
@@ -19,7 +20,43 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_ITEMS = os.path.normpath(os.path.join(HERE, '..', 'data', 'items.json'))
-PARTS = [('p', 'population'), ('i', 'intervention'), ('c', 'comparator'), ('o', 'outcome'), ('d', 'direction'), ('n', 'numbers')]
+# The boxes of a finding (assets/trial.js, FINDING_PARTS) and of the trial block.
+PARTS = [('p', 'population'), ('i', 'intervention'), ('ki', 'standard name of the intervention'), ('c', 'comparator'),
+         ('kc', 'standard name of the comparator'), ('o', 'outcome'), ('ko', 'standard name of the outcome'), ('d', 'direction'),
+         ('u', 'the measure itself (outcome named as a reduction)'), ('t', 'time point'), ('h', 'primary outcome'),
+         ('s', 'how the abstract words it'), ('nv', 'values in each group'), ('ne', 'estimate'), ('np', 'P value'), ('q', 'sentence')]
+TRIAL_PARTS = [('design', 'design'), ('condition', 'condition'), ('kcond', 'standard name of the condition'), ('population', 'participants'),
+               ('n', 'number of participants'), ('arm', 'groups (each one)'), ('outcome', 'outcomes (each one)'),
+               ('subgroup', 'subgroups (each one)'), ('reg', 'registration')]
+
+
+def shown_finding(f):
+    """Boxes shown on a finding's card (the same rule as findingKeys in assets/trial.js)."""
+    keys = ['p', 'i', 'c', 'o', 'd', 'h', 's', 'q']
+    keys += ['ki'] if f['i'].get('codes') else []
+    keys += ['kc'] if f['c'].get('codes') else []
+    keys += ['ko'] if f['o'].get('code') else []
+    keys += ['u'] if f.get('underlying') else []
+    keys += ['t'] if f.get('time') else []
+    return keys + [n['key'] for n in f.get('numbers') or []]
+
+
+def shown_trial(item):
+    """Boxes shown in the trial block, as (kind, key)."""
+    t = item.get('trial') or {}
+    out = [('design', 'design'), ('population', 'population')]
+    if t.get('condition'):
+        out.append(('condition', 'condition'))
+        if t['condition'].get('code'):
+            out.append(('kcond', 'kcond'))
+    if t.get('n'):
+        out.append(('n', 'n'))
+    if t.get('registration'):
+        out.append(('reg', 'reg'))
+    out += [('arm', f"arm:{a['id']}") for a in t.get('arms') or []]
+    out += [('outcome', f"outcome:{o['id']}") for o in t.get('outcomes') or []]
+    out += [('subgroup', f"subgroup:{s['id']}") for s in t.get('subgroups') or []]
+    return out
 
 
 def wilson(k, n, z=1.96):
@@ -112,19 +149,40 @@ def main():
                 out += ['', f'Weighted by the number of papers of each period in the base: {100 * num / den:.1f}% correct '
                             '(the sample takes the same number of trials from each period, the base does not).']
         bad = [x for _, x in passing if x['rating'] == 'not correct']
-        out += ['', f'What was wrong in the {len(bad)} passing findings rated not correct (a finding can have several):', '',
-                '| Part | Findings |', '|---|---|']
+        fitem = {f['id']: f for it in items.values() for f in it['findings']}
+        out += ['', f'Each box of the passing findings: how often it was shown, and how often it was marked wrong '
+                    f'({len(bad)} findings were rated "something is wrong"; a finding can have several boxes marked). '
+                    'A box marked on a finding rated unsure is counted apart.', '',
+                '| Box | Shown | Marked wrong | Right | Marked on an unsure finding |', '|---|---|---|---|---|']
         for p, name in PARTS:
-            out.append(f'| {name} | {sum(p in (x.get("wrong") or []) for x in bad)} |')
-        out.append(f'| the sentence reports no result between these two groups | {sum(bool(x.get("no_result")) for x in bad)} |')
-        out.append(f'| only a note | {sum(not (x.get("wrong") or []) and not x.get("no_result") for x in bad)} |')
+            shown = [(fid, x) for fid, x in passing if p in shown_finding(fitem[fid])]
+            wrong = sum(p in (x.get('wrong') or []) and x['rating'] == 'not correct' for _, x in shown)
+            doubt = sum(p in (x.get('wrong') or []) and x['rating'] == 'unsure' for _, x in shown)
+            if shown:
+                out.append(f'| {name} | {len(shown)} | {wrong} | {100 * (len(shown) - wrong) / len(shown):.1f}% | {doubt} |')
+        out.append(f'| the sentence reports no result between these two groups | {len(passing)} | {sum(bool(x.get("no_result")) for x in bad)} | | |')
         ok = [x for _, x in passing if x['rating'] != 'not correct']
         w = collections.Counter(x.get('worth') for x in ok)
         out += ['', f'Worth having, of the {len(ok)} passing findings not rated wrong: yes {pct(w["yes"], len(ok))}, no {pct(w["no"], len(ok))}, unsure {w["unsure"]}.', '']
+        out += ['Each box of the trial block:', '', '| Box | Shown | Marked wrong | Right |', '|---|---|---|---|']
+        for kind, name in TRIAL_PARTS:
+            n_shown = n_wrong = 0
+            for tid, r in by[k].items():
+                gl = (r.get('answer') or {}).get('glance') or {}
+                marks = set(gl.get('wrong') or []) if gl.get('rating') == 'not correct' else set()
+                for kd, key_ in shown_trial(items[tid]):
+                    if kd == kind:
+                        n_shown += 1
+                        n_wrong += key_ in marks
+            if n_shown:
+                out.append(f'| {name} | {n_shown} | {n_wrong} | {100 * (n_shown - n_wrong) / n_shown:.1f}% |')
+        gl_all = [(r.get('answer') or {}).get('glance') or {} for r in by[k].values()]
+        out += ['', f'Trials where a group was said to be missing: {sum("arm_missing" in (g_.get("wrong") or []) for g_ in gl_all)}; '
+                    f'an outcome: {sum("outcome_missing" in (g_.get("wrong") or []) for g_ in gl_all)}.', '']
         g = collections.Counter(((r.get('answer') or {}).get('glance') or {}).get('rating') for r in by[k].values())
         m = collections.Counter(((r.get('answer') or {}).get('missing') or {}).get('rating') for r in by[k].values())
         n_t = len(by[k])
-        out += [f'The trial at a glance: correct {pct(g["correct"], n_t)}, not correct {g["not correct"]}, unsure {g["unsure"]}.',
+        out += [f'The trial block as a whole: all correct {pct(g["correct"], n_t)}, something wrong {g["not correct"]}, unsure {g["unsure"]}.',
                 f'Anything missing: nothing {pct(m["no"], n_t)}, something {m["yes"]}, unsure {m["unsure"]}.', '']
         missing = [(tid, ((r.get('answer') or {}).get('missing') or {}).get('text')) for tid, r in sorted(by[k].items())
                    if ((r.get('answer') or {}).get('missing') or {}).get('rating') == 'yes']
@@ -148,7 +206,7 @@ def main():
         line('Worth having (where both answered)', [(labels[k1][f].get('worth'), labels[k2][f].get('worth')) for f in both
                                                     if labels[k1][f].get('worth') and labels[k2][f].get('worth')])
         trials = sorted(set(by[k1]) & set(by[k2]))
-        for part, name in (('glance', 'The trial at a glance'), ('missing', 'Anything missing')):
+        for part, name in (('glance', 'The trial block'), ('missing', 'Anything missing')):
             line(name, [(((by[k1][t].get('answer') or {}).get(part) or {}).get('rating'), ((by[k2][t].get('answer') or {}).get(part) or {}).get('rating')) for t in trials])
         passing = [f for f in both if fkey[f]['status'] == 'COMMIT']
         n = len(passing)
