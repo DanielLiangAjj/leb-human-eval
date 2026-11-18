@@ -21,8 +21,10 @@ evidence base repository (`docs/evaluation/clinician_50/key.json`) and must not 
 
 The sample of 2026-11-17 (`clinician_50`): 50 trials, 10 per period (before 2000, 2000s, 2010s, 2020s,
 indexed since May 2026), drawn in a fixed hash order from the 24,642 papers the base reads as randomized
-trials; 245 findings (at most 8 per trial; 3 trials have none). About 4.5 hours per evaluator, since every
-field is checked (`--max-per-trial 5` in the export gives 188 findings and about 4 hours).
+trials; 245 findings (at most 8 per trial; 3 trials have none). With the second sheet (132 statements on 29
+of the trials) the welcome page tells an evaluator about 3.5 hours: about 3 h 10 min for the trials and
+about 20 min for the statements. The times per item behind that figure (`assets/state.js`) are an estimate
+set on 2026-11-18, not a measurement; the time on screen of every trial is stored with its answer.
 
 ## Run it locally
 
@@ -136,7 +138,7 @@ the numbers read for the comparison, the sentence with the words that state the 
 in the abstract) and how many findings are not shown. The second sheet, `statements`, has its own file
 and its own section below.
 
-## The second sheet: statements of another program (off by default)
+## The second sheet: statements of another program (on since 2026-11-18)
 
 A short second part for the same raters: the statements that another, published program reads from the
 same abstracts, each as one plain sentence ("Orlistat treats Obesity."). The site does not say which
@@ -151,12 +153,12 @@ per statement with two questions:
 
 Keys: `1 2 3` answer A, `Y N U` answer B, `J K` move between statements, Enter is Next, `B` is Back.
 
-The sheet is **off** unless `config.js` says `export const STATEMENTS_SHEET = true;`. While it is off the
-site loads and shows the trials sheet only, exactly as before: `data/statements.json` is not fetched, the
-time estimate and the finish screen do not change. When it is on, the statements follow the trials (the
-page between the two parts says that this is a good place to stop), the welcome page lists both parts with
-their time (about 12 seconds per statement), and a rater who had already finished the trials is taken to
-the statements on the next visit. `config.local.js` can set `STATEMENTS_SHEET` for local testing.
+The sheet is **on**: `config.js` says `export const STATEMENTS_SHEET = true;`. The statements follow the
+trials (the page between the two parts says that this is a good place to stop), the welcome page lists both
+parts with their time (about 9 seconds per statement), and a rater who had already finished the trials is
+taken to the statements on the next visit. With the flag set to `false` the site loads and shows the trials
+sheet only: `data/statements.json` is not fetched, and the time estimate and the finish screen cover the
+trials alone. `config.local.js` can set `STATEMENTS_SHEET` for local testing.
 
 `data/statements.json` is written by `scripts/clinician_statements.py` of the evidence base repository,
 from the same sample: 29 of the 50 trials have a statement, 132 statements in all, at most 13 per trial.
@@ -184,7 +186,7 @@ index.html, 404.html, config.js        page shell, deep-link redirect, Supabase 
 assets/app.js                          entry: settings, items, first screen
 assets/views.js                        screens and flow (welcome, intro, trial, pause, finish)
 assets/trial.js                        the trial screen: abstract, PICO layout, controls, answer JSON
-assets/statements.js                   the statements screen (second sheet, off by default)
+assets/statements.js                   the statements screen (second sheet)
 assets/state.js, storage.js,           session and trial order, localStorage (answers, drafts, queue),
   sync.js, api.js, prng.js,            save queue with retries, Supabase RPC calls, seeded shuffle,
   markdown.js, dom.js                  guide markdown

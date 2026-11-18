@@ -7,5 +7,5 @@
 export const SUPABASE_URL = 'https://xfpuahqpfndjgzgcgzic.supabase.co';
 export const SUPABASE_ANON_KEY = 'sb_publishable_3s-0zRRlDynusRjgNUrXCQ_JOeibpAZ';
 // The second sheet (short statements another program read from the same abstracts, data/statements.json).
-// false: the site shows the trials sheet only, exactly as before. true: the statements sheet follows it.
-export const STATEMENTS_SHEET = false;
+// true (since 2026-11-18): the statements sheet follows the trials sheet. false: the site shows the trials sheet only.
+export const STATEMENTS_SHEET = true;

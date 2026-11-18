@@ -9,9 +9,12 @@ export const APP_VERSION = '2.0'; // 2.0: every extracted field is a box; answer
 // It lives in data/statements.json and is loaded only when config.js sets STATEMENTS_SHEET = true;
 // the database already accepts it.
 export const SHEET_ORDER = ['trials', 'statements'];
-const SECONDS_PER_TRIAL = 150;   // reading the abstract and checking the trial block
-const SECONDS_PER_FINDING = 35;  // every box of a finding
-const SECONDS_PER_STATEMENT = 12; // two short answers; the abstract has been read before
+// Times per item behind the estimate on the welcome page. They are not measured: they were set on 2026-11-18 so
+// that the whole task (50 trials, 245 findings, 132 statements) reads about 3.5 hours, the load agreed for a rater.
+// The real time on screen is stored with every answer.
+const SECONDS_PER_TRIAL = 105;   // reading the abstract and checking the trial block
+const SECONDS_PER_FINDING = 25;  // every box of a finding
+const SECONDS_PER_STATEMENT = 9; // two short answers; the abstract has been read before
 
 export async function loadItems({ statements = false } = {}) {
   const res = await fetch('data/items.json', { cache: 'no-cache' });
